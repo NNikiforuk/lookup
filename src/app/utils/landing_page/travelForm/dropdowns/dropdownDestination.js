@@ -1,6 +1,6 @@
 const axios = require("axios");
 const URL =
-	"https://raw.githubusercontent.com/NNikiforuk/lookup/main/endpoints.json";
+	"https://raw.githubusercontent.com/NNikiforuk/lookup/main/endpoints/endpoints.json";
 
 const optionDestination = document.createElement("div");
 const optionDestinationIcon = document.createElement("i");
@@ -9,6 +9,7 @@ const dropdownDestination = document.createElement("ul");
 
 optionDestination.classList.add("optionDestination");
 optionDestination.classList.add("optionToDrop");
+optionDestination.classList.add("optionToClose");
 optionDestinationIcon.classList.add("fa-solid");
 optionDestinationIcon.classList.add("fa-plane");
 optionDestinationTitle.classList.add("optionDestinationTitle");

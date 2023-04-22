@@ -3,7 +3,7 @@ import { weatherInfo } from "../../form";
 
 const axios = require("axios");
 const URL =
-	"https://raw.githubusercontent.com/NNikiforuk/lookup/main/endpoints.json";
+	"https://raw.githubusercontent.com/NNikiforuk/lookup/main/endpoints/endpoints.json";
 const API_LINK = "https://api.openweathermap.org/data/2.5/weather?q=";
 const API_KEY = "&appid=287df36ddd265bcd8bc4cfa721eeac5d";
 const API_UNITS = "&units=metric";
@@ -15,6 +15,7 @@ const dropdownOrigin = document.createElement("ul");
 
 optionOrigin.classList.add("optionOrigin");
 optionOrigin.classList.add("optionToDrop");
+optionOrigin.classList.add("optionToClose");
 optionOriginIcon.classList.add("fa-solid");
 optionOriginIcon.classList.add("fa-house");
 optionOriginTitle.classList.add("optionOriginTitle");
