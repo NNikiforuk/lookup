@@ -1,0 +1,124 @@
+.navbar {
+	display: flex;
+	width: 100%;
+	height: 4rem;
+	box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.2);
+
+	.container {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		justify-content: space-between;
+		align-items: center;
+
+		.navbarLogo {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1em;
+
+			.logo {
+				width: 2rem;
+			}
+
+			.logoText {
+				padding: 0.6em;
+				font-family: "Oswald", sans-serif;
+				font-weight: bold;
+				color: #12345c;
+			}
+		}
+
+		.navbarLogin {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			color: rgb(248, 243, 243);
+			background-color: #12345c;
+			width: 30%;
+			height: 100%;
+			cursor: pointer;
+
+			.fa-plane {
+				font-size: 0.5em;
+				padding: 0.5em;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.navbar {
+		height: 5rem;
+
+		.container {
+			.navbarLogo {
+				.logo {
+					width: 3rem;
+					margin-left: 1em;
+				}
+
+				.logoText {
+					font-size: 1.6em;
+				}
+			}
+
+			.navbarLogin {
+				width: 15%;
+				font-size: 1.2em;
+
+				.loginBtnText {
+					font-size: 1.2em;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.navbar {
+		height: 6rem;
+		width: 100vw;
+
+		.container {
+			width: 90vw;
+			margin: 0 auto;
+
+			.navbarLogo {
+				padding: 0;
+				margin: 0;
+
+				.logo {
+					width: 3rem;
+					margin: 0;
+				}
+
+				.logoText {
+					font-size: 1.7em;
+					margin: 0;
+				}
+			}
+
+			.navbarLogin {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				height: 100%;
+				max-width: 10rem;
+				font-size: 1.5em;
+				border-top-right-radius: 1.5em;
+				border-bottom-left-radius: 1.5em;
+				border-top-left-radius: 0.7em;
+				border-bottom-right-radius: 0.7em;
+
+				.fa-plane {
+					display: block;
+					font-size: 0.4em;
+					margin-top: 0.5rem;
+				}
+			}
+		}
+	}
+}
