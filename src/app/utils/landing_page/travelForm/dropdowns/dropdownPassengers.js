@@ -18,6 +18,7 @@ optionPassengersTitle.classList.add("optionPassengersTitle");
 optionPassengersTitle.textContent = "Passengers";
 dropdownPassengers.classList.add("dropdownPassengers");
 dropdownPassengers.classList.add("dropdown");
+dropdownPassengers.classList.add("preventClose");
 
 axios.get(URL).then((response) => {
 	response.data.passengers.forEach((element) => {
