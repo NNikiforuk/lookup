@@ -58,4 +58,4 @@ const cityInfo = () => {
 };
 
 optionOrigin.append(optionOriginIcon, optionOriginTitle, dropdownOrigin);
-export { optionOrigin };
+export { optionOrigin, optionOriginTitle };

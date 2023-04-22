@@ -35,4 +35,4 @@ optionDestination.append(
 	dropdownDestination
 );
 
-export { optionDestination };
+export { optionDestination, optionDestinationTitle };

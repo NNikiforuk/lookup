@@ -54,7 +54,7 @@ axios.get(URL).then((response) => {
 const addBelowPassenger = () => {
 	const belowContainer = document.createElement("div");
 	const confirmBtn = document.createElement("button");
-	confirmBtn.classList.add("confirmBtn");
+	confirmBtn.classList.add("confirmSmallerBtn");
 	confirmBtn.textContent = "Accept";
 	belowContainer.classList.add("belowContainer");
 
@@ -98,4 +98,4 @@ optionPassengers.append(
 	dropdownPassengers
 );
 
-export { optionPassengers };
+export { optionPassengers, optionPassengersTitle };

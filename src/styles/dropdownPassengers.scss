@@ -1,7 +1,35 @@
 .dropdownPassengers {
-    .passengerContainer {
-        .passengerLeft {
-            text-align: start;
+	.passengerContainer {
+		.passengerLeft {
+			text-align: start;
+		}
+	}
+
+	.belowContainer {
+		.confirmSmallerBtn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: none;
+			padding: 1em;
+			margin: 0.5em;
+			width: 9rem;
+			height: 2.5rem;
+			border-bottom-left-radius: 1.5em;
+			border-top-right-radius: 1.5em;
+			border-top-left-radius: 0.8em;
+			border-bottom-right-radius: 0.8em;
+			font-family: "Roboto", sans-serif;
+			font-size: 1em;
+			cursor: pointer;
+			background-color: #4392f1;
+			color: #fff;
+		}
+
+        .countContainer {
+            .passengerCount, .babyInfo {
+                text-align: start;
+            }
         }
-    }
+	}
 }
