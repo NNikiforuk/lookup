@@ -51,7 +51,7 @@
 			background: white;
 			box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
 			display: flex;
-			justify-content: flex-start;
+			justify-content: center;
 			align-items: center;
 
 			.fa-solid {
@@ -198,104 +198,117 @@
 
 @media only screen and (min-width: 768px) {
 	.wrapper {
-		border-top-right-radius: 3em;
-		border-top-left-radius: 1.5em;
-		border-bottom-right-radius: 1.5em;
-		border-bottom-left-radius: 3em;
-		max-width: 90%;
-		height: 25rem;
-		margin: 0 auto;
+		border-bottom-left-radius: 3.5em;
+		border-top-right-radius: 3.5em;
+		height: auto;
 
 		.weatherInfo {
-			font-size: 1.4em;
-			padding: 1em;
-		}
-
-		.form {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-
-			.optionOrigin,
-			.optionDate,
-			.optionDestination,
-			.optionPassengers {
-				margin: 0 auto;
-				padding: 1.5em;
-				width: 13rem;
-
-				.fa-solid {
-					font-size: 1.4em;
-				}
-
-				.optionOriginTitle,
-				.optionDestinationTitle,
-				.optionPassengersTitle {
-					font-size: 1.4em;
-				}
-
-				.inputDate {
-					font-size: 1.5em;
-				}
-			}
-		}
-
-		.confirmBtn {
-			font-size: 1.4em;
-			padding: 1em;
-			width: 13rem;
-		}
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	.wrapper {
-		width: 80%;
-		height: 25rem;
-		top: -15em;
-
-		.form {
-			.optionOrigin,
-			.optionDate,
-			.optionDestination,
-			.optionPassengers {
-				margin: 0 auto;
-				width: 15rem;
-
-				.fa-solid {
-					font-size: 1.5em;
-				}
-
-				.optionOriginTitle,
-				.optionDestinationTitle,
-				.optionPassengersTitle {
-					font-size: 1.5em;
-				}
-
-				.inputDate {
-					font-size: 1.5em;
-				}
-			}
-		}
-
-		.confirmBtn {
 			font-size: 1.5em;
-			width: 15rem;
+			padding: 0.5em;
+		}
+
+		.form {
+			flex-direction: row;
+			flex-wrap: wrap;
+			padding: 0;
+
+			.optionOrigin,
+			.optionDestination,
+			.optionPassengers,
+			input[type="date"] {
+				padding: 1.3em 2.6em;
+				width: 16rem;
+				height: 4rem;
+				border-bottom-left-radius: 2.5em;
+				border-top-right-radius: 2.5em;
+				border-top-left-radius: 1em;
+				border-bottom-right-radius: 1em;
+
+				.optionOriginTitle,
+				.optionDestinationTitle,
+				.optionPassengersTitle,
+				.fa-solid {
+					font-size: 1.7em;
+				}
+
+				.dropdown {
+					padding: 1em 2em;
+					width: 16rem;
+					top: 2rem;
+
+					.liItem {
+						font-size: 1.7em;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+				}
+
+				.dropdownPassengers {
+					padding-top: 2em;
+
+					.passengerContainer {
+						padding: 0;
+						font-size: 1.6em;
+
+						.passengerDesc {
+							padding-bottom: 1em;
+						}
+
+						.passengerSelect {
+							width: 30%;
+							height: 3rem;
+						}
+					}
+
+					.belowContainer {
+						.confirmSmallerBtn {
+							padding: 1em;
+							margin: 0.5em;
+							width: 13rem;
+							height: 2.5rem;
+							border-bottom-left-radius: 1.5em;
+							border-top-right-radius: 1.5em;
+							border-top-left-radius: 0.8em;
+							border-bottom-right-radius: 0.8em;
+							font-family: "Roboto", sans-serif;
+							font-size: 1.5em;
+							cursor: pointer;
+
+							background-color: #4392f1;
+							color: #fff;
+						}
+
+						.passengerNote {
+							font-size: 1.3em;
+						}
+
+						.countContainer {
+							.passengerCount,
+							.babyInfo {
+								font-size: 1.3em;
+							}
+						}
+					}
+				}
+			}
+
+			input[type="date"] {
+				font-size: 1.3em;
+			}
+		}
+
+		.confirmBtn {
+			margin-top: 2.5rem;
+			padding: 1.3em;
+			width: 16rem;
+			font-size: 1.7em;
 		}
 	}
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
 	.wrapper {
-		width: 80%;
-		height: auto;
 		top: -10em;
-
-		.form {
-			grid-template-columns: repeat(4, 1fr);
-		}
-
-		.confirmBtn {
-			margin-top: 3rem;
-		}
 	}
 }

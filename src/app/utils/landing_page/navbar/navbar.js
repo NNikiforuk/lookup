@@ -1,5 +1,5 @@
-import image from "../../../assets/logo.png";
-import "../../../styles/navbar.scss";
+import image from "../../../../assets/logo.png";
+import "../../../../styles/navbar.scss";
 
 const navbar = document.createElement("navbar");
 const container = document.createElement("div");
@@ -35,4 +35,4 @@ navbarLogo.append(logo, logoText);
 container.append(navbarLogo, navbarLogin);
 navbar.appendChild(container);
 
-export default navbar;
+export { navbar, navbarLogin };
