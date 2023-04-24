@@ -7,4 +7,4 @@ input.classList.add("inputDate");
 
 optionDate.appendChild(input);
 
-export default optionDate
+export { optionDate, input };
