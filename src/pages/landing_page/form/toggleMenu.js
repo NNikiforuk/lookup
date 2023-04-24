@@ -1,7 +1,6 @@
-import "../../../../../styles/form.scss";
+const optionsToDrop = document.querySelectorAll(".optionToDrop");
 
 export const toggleMenu = () => {
-	const optionsToDrop = document.querySelectorAll(".optionToDrop");
 
 	optionsToDrop.forEach((item) => {
 		item.addEventListener("click", (e) => {

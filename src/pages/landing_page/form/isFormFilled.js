@@ -1,9 +1,11 @@
-import { optionOriginTitle } from "../dropdowns/dropdownOrigin";
-import { input } from "../dropdowns/dropdownDate";
-import { optionDestinationTitle } from "../dropdowns/dropdownDestination";
-import { optionPassengersTitle } from "../dropdowns/dropdownPassengers";
+const optionOriginTitle = document.querySelector(".optionOriginTitle");
+const inputDate = document.querySelector(".inputDate");
+const optionDestinationTitle = document.querySelector(
+	".optionDestinationTitle"
+);
+const optionPassengersTitle = document.querySelector(".optionPassengersTitle");
 
-let originalValue = input.value;
+let originalValue = inputDate.value;
 let dateChanged;
 
 export const isFormFilled = () => {
@@ -12,7 +14,7 @@ export const isFormFilled = () => {
 		dateChanged === false ||
 		optionDestinationTitle.textContent === "Destination" ||
 		optionPassengersTitle.textContent === "Passengers"
-		) {
+	) {
 		alert("Wypełnij wszystkie pola");
 	} else {
 		alert("OK");
@@ -20,8 +22,8 @@ export const isFormFilled = () => {
 };
 
 const ifDateChanged = () => {
-	input.addEventListener("input", () => {
-		const newValue = input.value;
+	inputDate.addEventListener("input", () => {
+		const newValue = inputDate.value;
 
 		if (newValue !== originalValue) {
 			dateChanged = true;

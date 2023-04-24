@@ -1,4 +1,4 @@
-import { optionPassengersTitle } from "../dropdowns/dropdownPassengers";
+const optionPassengersTitle = document.querySelector(".optionPassengersTitle");
 
 export const countPassengers = () => {
 	const selectedOptions = [];
@@ -36,8 +36,5 @@ export const countPassengers = () => {
 		countToChange.textContent = `You can choose ${quantity} more passengers`;
 	}
 
-
-	optionPassengersTitle.textContent = sumWithInitial
-
-
+	optionPassengersTitle.textContent = sumWithInitial;
 };

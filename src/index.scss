@@ -1,5 +1,7 @@
-// $primary: pink;
-// $danger: blue;
+@import "./styles/navbar.scss";
+@import "./styles/main.scss";
+@import "./styles/form.scss";
+@import "./styles/dropdownPassengers.scss";
 
 * {
 	box-sizing: border-box;
