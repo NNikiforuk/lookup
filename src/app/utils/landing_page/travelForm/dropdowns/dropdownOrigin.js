@@ -8,7 +8,6 @@ const axios = require("axios");
 const URL =
 	"https://raw.githubusercontent.com/NNikiforuk/lookup/main/endpoints/endpoints.json";
 const API_LINK = "https://api.openweathermap.org/data/2.5/weather?q=";
-// const API_KEY = "&appid=287df36ddd265bcd8bc4cfa721eeac5d";
 const API_UNITS = "&units=metric";
 
 const optionOrigin = document.createElement("div");

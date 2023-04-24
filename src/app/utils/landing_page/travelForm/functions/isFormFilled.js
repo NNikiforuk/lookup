@@ -4,31 +4,31 @@ import { optionDestinationTitle } from "../dropdowns/dropdownDestination";
 import { optionPassengersTitle } from "../dropdowns/dropdownPassengers";
 
 let originalValue = input.value;
-let dateChanged = false
+let dateChanged;
 
 export const isFormFilled = () => {
-	ifDateChanged()
-	console.log(dateChanged)
 	if (
 		optionOriginTitle.textContent === "Origin" ||
 		dateChanged === false ||
 		optionDestinationTitle.textContent === "Destination" ||
 		optionPassengersTitle.textContent === "Passengers"
-	) {
+		) {
 		alert("Wypełnij wszystkie pola");
 	} else {
 		alert("OK");
 	}
 };
 
-
 const ifDateChanged = () => {
+	input.addEventListener("input", () => {
+		const newValue = input.value;
 
-input.addEventListener("input", () => {
-	const newValue = input.value;
+		if (newValue !== originalValue) {
+			dateChanged = true;
+		} else {
+			dateChanged = false;
+		}
+	});
+};
 
-	if (newValue !== originalValue) {
-		dateChanged = true
-	}
-});
-}
+ifDateChanged();
