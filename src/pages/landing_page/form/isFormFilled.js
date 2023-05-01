@@ -4,6 +4,7 @@ const optionDestinationTitle = document.querySelector(
 	".optionDestinationTitle"
 );
 const optionPassengersTitle = document.querySelector(".optionPassengersTitle");
+const registerLogin = document.querySelector(".registerLogin");
 
 let originalValue = inputDate.value;
 let dateChanged;
@@ -17,7 +18,7 @@ export const isFormFilled = () => {
 	) {
 		alert("Wypełnij wszystkie pola");
 	} else {
-		alert("OK");
+		registerLogin.classList.add("show")
 	}
 };
 

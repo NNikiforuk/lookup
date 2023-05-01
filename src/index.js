@@ -1,4 +1,4 @@
-import "./index.scss"
-import { mainFunction } from "./app"
+import "./index.scss";
+import { mainFunction } from "./app";
 
 document.addEventListener("DOMContentLoaded", mainFunction);

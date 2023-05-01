@@ -3,17 +3,23 @@ const common = require("./webpack.common");
 const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-
 module.exports = merge(common, {
 	mode: "development",
 	output: {
-		filename: "main.js",
+		filename: "[name].bundle.js",
 		path: path.resolve(__dirname, "dist"),
 		assetModuleFilename: "images/[name][ext]",
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
+			filename: "index.html",
 			template: "./src/template.html",
+			chunks: ["main"],
+		}),
+		new HtmlWebpackPlugin({
+			filename: "second.html",
+			template: "./src/second.html",
+			chunks: ["second"],
 		}),
 	],
 	module: {

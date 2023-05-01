@@ -19,53 +19,74 @@
 
 <body>
 
-    <div class="root">
-        <navbar class="navbar">
-            <div class="container">
-                <div class="navbarLogo"><img class="logo" src="./assets/logo.png" alt="logo" />
-                    <div class="logoText">LookUp</div>
+    <navbar class="navbar">
+        <div class="container">
+            <div class="navbarLogo">
+                <img class="logo" src="./assets/logo.png" alt="logo" />
+                <div class="logoText">LookUp</div>
+            </div>
+            <div class="navbarLogin">
+                <div class="loginBtnText">Login</div>
+            </div>
+        </div>
+    </navbar>
+    <main class="main">
+
+        <header class="header"><img class="headerImg" src="./assets/airplane_wing.jpg" alt="plane photo" />
+            <div class="headerText">Conveniently plan your flights</div>
+        </header>
+
+        <div class="wrapper">
+            <div class="weatherInfo"></div>
+            <div class="form">
+                <div class="optionOrigin optionToDrop optionToClose">
+                    <i class="fa-solid fa-house"></i>
+                    <p class="optionOriginTitle">Origin</p>
+                    <ul class="dropdownOrigin dropdown">
+                    </ul>
                 </div>
-                <div class="navbarLogin">
-                    <div class="loginBtnText">Login</div>
+                <div class="optionDate"><input type="date" class="inputDate" /></div>
+                <div class="optionDestination optionToDrop optionToClose"><i class="fa-solid fa-plane"></i>
+                    <p class="optionDestinationTitle">Destination</p>
+                    <ul class="dropdownDestination dropdown">
+                    </ul>
+                </div>
+
+                <div class="optionPassengers optionToDrop">
+                    <i class="fa-solid fa-user"></i>
+                    <p class="optionPassengersTitle">Passengers</p>
+                    <div class="dropdownPassengers dropdown preventClose">
+
+                    </div>
+                </div>
+
+            </div>
+            <button class="confirmBtn">Accept</button>
+        </div>
+        <div class="registerLogin">
+            <div class="container">
+                <div class="title">
+                    <div class="titleIcon"><i class="fa-solid fa-door-open"></i></div>
+                    <div class="titleName">Login</div>
+                </div>
+                <div class="form">
+                    <input type="email" class="loginEmail" placeholder="E-mail">
+                    <input type="password" class="loginPassword" placeholder="Password">
+                </div>
+                <button class="loginBtn">Login</button>
+                <p class="openRegister">No account? Click to register</p>
+                <div class="register">
+                    <div class="registerForm">
+                        <input type="email" class="registerEmail" placeholder="E-mail">
+                        <input type="password" class="registerPassword" placeholder="Password">
+                    </div>
+                    <button class="registerBtn">Register</button>
                 </div>
             </div>
-        </navbar>
-        <main class="main">
-            <header class="header"><img class="headerImg" src="./assets/airplane_wing.jpg" alt="plane photo" />
-                <div class="headerText">Conveniently plan your flights</div>
-            </header>
-            <div class="wrapper">
-                <div class="weatherInfo"></div>
-                <div class="form">
-                    <div class="optionOrigin optionToDrop optionToClose">
-                        <i class="fa-solid fa-house"></i>
-                        <p class="optionOriginTitle">Origin</p>
-                        <ul class="dropdownOrigin dropdown">
-                        </ul>
-                    </div>
-                    <div class="optionDate"><input type="date" class="inputDate" /></div>
-                    <div class="optionDestination optionToDrop optionToClose"><i class="fa-solid fa-plane"></i>
-                        <p class="optionDestinationTitle">Destination</p>
-                        <ul class="dropdownDestination dropdown">
-                        </ul>
-                    </div>
-
-                    <div class="optionPassengers optionToDrop">
-                        <i class="fa-solid fa-user"></i>
-                        <p class="optionPassengersTitle">Passengers</p>
-                        <div class="dropdownPassengers dropdown preventClose">
-
-                        </div>
-                    </div>
-
-                </div>
-                <button class="confirmBtn">Accept</button>
-        </main>
-        <div class="registerLogin">
-            
         </div>
-    </div>
+    </main>
 
+    <a href="second.html">Click here to go to W3docs.com</a>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 </body>
