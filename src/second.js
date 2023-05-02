@@ -1,6 +1,7 @@
 import "./index.scss";
 import { authLogout } from "./config/firebase";
 import { ref, getDatabase, child, get } from "firebase/database";
+import { planeAPI } from "./pages/user_page/planeAPI";
 
 const logoutBtn = document.querySelector(".navbarLogout");
 const originText = document.querySelector(".originText");
@@ -31,11 +32,13 @@ export const mainFunctionSecond = () => {
 		destination = users.destination;
 		passengers = users.passengers;
 
-		originText.textContent = origin
-		dateText.textContent = date
-		destinationText.textContent = destination
-		passengersText.textContent = passengers
+		originText.textContent = origin;
+		dateText.textContent = date;
+		destinationText.textContent = destination;
+		passengersText.textContent = passengers;
 	});
+
+	planeAPI();
 };
 
 mainFunctionSecond();

@@ -1,4 +1,4 @@
-import { cityInfo } from "./cityInfo.js.js";
+import { cityInfo } from "./cityInfo.js";
 import { countPassengers } from "./countPassengers.js";
 import { addBelowPassenger } from "./addBelowPassenger.js";
 
