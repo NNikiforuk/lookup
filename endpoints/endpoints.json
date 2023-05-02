@@ -3,7 +3,8 @@
 		{
 			"id": 1,
 			"value": "wroclaw",
-			"description": "Wrocław"
+			"description": "Wrocław",
+			"code": "WRO"
 		}
 	],
 	"destination": [
@@ -11,21 +12,26 @@
 			"id": 1,
 			"value": "krakow",
 			"description": "Krakow"
+			"code": "KRK"
 		},
 		{
 			"id": 2,
 			"value": "paris",
-			"description": "Paris"
+			"description": "Paris",
+			"code": "PAR"
+			
 		},
 		{
 			"id": 3,
 			"value": "newyork",
-			"description": "New York"
+			"description": "New York",
+			"code": "NYC"
 		},
 		{
 			"id": 4,
 			"value": "warsaw",
-			"description": "Warsaw"
+			"description": "Warsaw",
+			"code": "WAW"
 		}
 	],
 	"passengers": [
