@@ -5,12 +5,13 @@ import {
 	showLoginForm,
 	showRegisterForm,
 } from "./pages/landing_page/navbar/login";
-import { authRegister } from "./config/firebase";
+import { authRegister, authLogin } from "./config/firebase";
 
 const confirmBtn = document.querySelector(".confirmBtn");
 const navbarLogin = document.querySelector(".navbarLogin");
 const openRegister = document.querySelector(".openRegister");
 const registerBtn = document.querySelector(".registerBtn");
+const loginBtn = document.querySelector(".loginBtn");
 
 export const mainFunction = () => {
 	displayOptions();
@@ -19,4 +20,5 @@ export const mainFunction = () => {
 	navbarLogin.addEventListener("click", showLoginForm);
 	openRegister.addEventListener("click", showRegisterForm);
 	registerBtn.addEventListener("click", authRegister);
+	loginBtn.addEventListener("click", authLogin);
 };

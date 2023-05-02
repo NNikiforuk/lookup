@@ -1,4 +1,10 @@
 import "./index.scss";
+import { authLogout } from "./config/firebase";
 
+const logoutBtn = document.querySelector(".navbarLogout");
 
-console.log("dupa")
+export const mainFunctionSecond = () => {
+	logoutBtn.addEventListener("click", authLogout);
+};
+
+mainFunctionSecond()

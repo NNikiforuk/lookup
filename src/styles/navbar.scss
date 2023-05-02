@@ -2,7 +2,6 @@
 	display: flex;
 	width: 100%;
 	height: 4rem;
-	box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.2);
 
 	.container {
 		display: flex;
@@ -10,6 +9,7 @@
 		height: 100%;
 		justify-content: space-between;
 		align-items: center;
+		box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.2);
 
 		.navbarLogo {
 			display: flex;
@@ -29,7 +29,8 @@
 			}
 		}
 
-		.navbarLogin {
+		.navbarLogin,
+		.navbarLogout {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -64,7 +65,8 @@
 				}
 			}
 
-			.navbarLogin {
+			.navbarLogin,
+			.navbarLogout {
 				width: 15%;
 				font-size: 1.2em;
 
@@ -100,7 +102,8 @@
 				}
 			}
 
-			.navbarLogin {
+			.navbarLogin,
+			.navbarLogout {
 				display: flex;
 				justify-content: center;
 				align-items: center;
