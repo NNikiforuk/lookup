@@ -36,14 +36,25 @@ export const authRegister = () => {
 		".optionPassengersTitle"
 	).textContent;
 
-	createUserWithEmailAndPassword(auth, email, password)
+	createUserWithEmailAndPassword(
+		auth,
+		email,
+		password,
+		origin,
+		date,
+		destination,
+		passengers
+	)
 		.then(async (userCredential) => {
 			// Signed in
 			const user = userCredential.user;
 
 			await set(ref(database, "users/" + user.uid), {
 				email: email,
-				
+				origin: origin,
+				date: date,
+				destination: destination,
+				passengers: passengers,
 			});
 		})
 		.then(function () {
@@ -60,7 +71,24 @@ export const authLogin = () => {
 	const email = document.querySelector(".loginEmail").value;
 	const password = document.querySelector(".loginPassword").value;
 
-	signInWithEmailAndPassword(auth, email, password)
+	const origin = document.querySelector(".optionOriginTitle").textContent;
+	const date = document.querySelector(".inputDate").value;
+	const destination = document.querySelector(
+		".optionDestinationTitle"
+	).textContent;
+	const passengers = document.querySelector(
+		".optionPassengersTitle"
+	).textContent;
+
+	signInWithEmailAndPassword(
+		auth,
+		email,
+		password,
+		origin,
+		date,
+		destination,
+		passengers
+	)
 		.then(async (userCredential) => {
 			// Signed in
 			const user = userCredential.user;
@@ -68,6 +96,10 @@ export const authLogin = () => {
 
 			update(ref(database, "users/" + user.uid), {
 				last_login: dt,
+				origin: origin,
+				date: date,
+				destination: destination,
+				passengers: passengers,
 			});
 		})
 		.then(function () {
@@ -89,3 +121,4 @@ export const authLogout = () => {
 			alert(errorMessage);
 		});
 };
+
