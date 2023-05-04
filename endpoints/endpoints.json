@@ -3,7 +3,7 @@
 		{
 			"id": 1,
 			"value": "wroclaw",
-			"description": "Wrocław",
+			"description": "Wroclaw",
 			"code": "WRO"
 		}
 	],
@@ -11,7 +11,7 @@
 		{
 			"id": 1,
 			"value": "krakow",
-			"description": "Kraków",
+			"description": "Krakow",
 			"code": "KRK"
 		},
 		{
