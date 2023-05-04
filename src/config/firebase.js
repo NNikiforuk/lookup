@@ -4,7 +4,7 @@ import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 } from "firebase/auth";
-import { userPage } from "../pages/first_page/navbar/routing";
+import { handleUserLoggedIn } from "../pages/first_page/navbar/routing";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyCSAgcs76sBvOhtfUkAor-dHDoumhBbXdU",
@@ -22,33 +22,42 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 const warning = document.querySelector(".warning");
 
-export const authRegister = () => {
+let isUserLoggedIn = false;
+
+export const userData = () => {
+	return {
+		isUserLoggedIn,
+	};
+};
+
+export const authRegister = async () => {
 	const email = document.querySelector(".registerEmail").value;
 	const password = document.querySelector(".registerPassword").value;
 
-	createUserWithEmailAndPassword(auth, email, password)
-		.then(() => {
-			userPage();
-			warning.classList.remove("show");
-		})
-		.catch((error) => {
-			const errorMessage = error.message;
-			warning.textContent = errorMessage;
-			warning.classList.toggle("show")
-		});
+	try {
+		const user = await createUserWithEmailAndPassword(auth, email, password);
+
+		isUserLoggedIn = true;
+
+		handleUserLoggedIn();
+		warning.classList.remove("show");
+	} catch (error) {
+		const errorMessage = error.message;
+		warning.textContent = errorMessage;
+		warning.classList.toggle("show");
+	}
 };
 
-export const authLogin = () => {
+export const authLogin = async () => {
 	const email = document.querySelector(".loginEmail").value;
 	const password = document.querySelector(".loginPassword").value;
 
-	signInWithEmailAndPassword(auth, email, password)
-		.then(() => {
-			userPage();
-		})
-		.catch((error) => {
-			const errorMessage = error.message;
-			warning.textContent = errorMessage;
-			warning.classList.toggle("show");
-		});
+	try {
+		await signInWithEmailAndPassword(auth, email, password);
+		handleUserLoggedIn();
+	} catch (error) {
+		const errorMessage = error.message;
+		warning.textContent = errorMessage;
+		warning.classList.toggle("show");
+	}
 };

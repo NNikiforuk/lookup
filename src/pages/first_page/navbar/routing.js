@@ -14,23 +14,10 @@ const firstDestination = document.querySelector("#firstDestination");
 const firstPassengers = document.querySelector("#firstPassengers");
 const weatherInfo = document.querySelector(".weatherInfo");
 
-const secondOrigin = document.querySelector("#secondOrigin");
-const secondDate = document.querySelector("#secondDate");
-const secondDestination = document.querySelector("#secondDestination");
-const secondPassengers = document.querySelector("#secondPassengers");
-
-export const userPage = () => {
+export const handleUserLoggedIn = () => {
 	registerLogin.classList.remove("show");
 	navbarLogin.classList.add("hide");
 	navbarLogout.classList.add("show");
-	header.classList.add("hide");
-	wrapper.classList.add("hide");
-	secondPage.classList.add("show");
-
-	secondOrigin.textContent = firstOrigin.textContent;
-	secondDate.value = firstDate.value;
-	secondDestination.textContent = firstDestination.textContent;
-	secondPassengers.textContent = firstPassengers.textContent;
 };
 
 export const homePage = () => {
