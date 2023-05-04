@@ -1,8 +1,5 @@
 module.exports = {
-	entry: {
-		main: "./src/index.js",
-		second: "./src/second.js"
-	},
+	entry: "./src/index.js",
 	module: {
 		rules: [
 			{
@@ -16,6 +13,3 @@ module.exports = {
 		],
 	},
 };
-
-
-

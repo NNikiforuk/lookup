@@ -46,6 +46,17 @@
 				padding: 0.5em;
 			}
 		}
+		.navbarLogout {
+			display: none;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.show {
+			display: flex;
+		}
 	}
 }
 

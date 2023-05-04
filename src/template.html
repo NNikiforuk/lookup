@@ -28,6 +28,9 @@
             <div class="navbarLogin">
                 <div class="loginBtnText">Login</div>
             </div>
+            <div class="navbarLogout">
+                <div class="loginBtnText">Log out</div>
+            </div>
         </div>
     </navbar>
     <main class="main">
@@ -84,9 +87,42 @@
                 </div>
             </div>
         </div>
-    </main>
 
-    <a href="second.html">Click here to go to W3docs.com</a>
+        <section class="secondPage">
+            <div class="form">
+                <div class="options">
+                    <div class="optionOrigin optionToDrop optionToClose">
+                        <i class="fa-solid fa-house"></i>
+                        <p class="optionOriginTitle">Origin</p>
+                        <ul class="dropdownOrigin dropdown">
+                        </ul>
+                    </div>
+                    <div class="optionDate">
+                        <input type="date" class="inputDate" />
+                    </div>
+                    <div class="optionDestination optionToDrop optionToClose"><i class="fa-solid fa-plane"></i>
+                        <p class="optionDestinationTitle">Destination</p>
+                        <ul class="dropdownDestination dropdown">
+                        </ul>
+                    </div>
+
+                    <div class="optionPassengers optionToDrop">
+                        <i class="fa-solid fa-user"></i>
+                        <p class="optionPassengersTitle">Passengers</p>
+                        <div class="dropdownPassengers dropdown preventClose">
+                        </div>
+                    </div>
+                </div>
+                <button class="confirmBtn">Accept</button>
+            </div>
+
+
+
+
+            </div>
+            <div class="summary"></div>
+        </section>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 </body>

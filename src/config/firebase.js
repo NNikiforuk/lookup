@@ -1,11 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, set, ref, update } from "firebase/database";
 import {
 	getAuth,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	signOut,
 } from "firebase/auth";
+import { userPage } from "../pages/landing_page/navbar/userPage";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyCSAgcs76sBvOhtfUkAor-dHDoumhBbXdU",
@@ -20,49 +20,23 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
 const auth = getAuth();
+
+
 
 export const authRegister = () => {
 	const email = document.querySelector(".registerEmail").value;
 	const password = document.querySelector(".registerPassword").value;
 
-	const origin = document.querySelector(".optionOriginTitle").textContent;
-	const date = document.querySelector(".inputDate").value;
-	const destination = document.querySelector(
-		".optionDestinationTitle"
-	).textContent;
-	const passengers = document.querySelector(
-		".optionPassengersTitle"
-	).textContent;
-
 	createUserWithEmailAndPassword(
 		auth,
 		email,
 		password,
-		origin,
-		date,
-		destination,
-		passengers
-	)
-		.then(async (userCredential) => {
-			// Signed in
-			const user = userCredential.user;
-
-			await set(ref(database, "users/" + user.uid), {
-				email: email,
-				origin: origin,
-				date: date,
-				destination: destination,
-				passengers: passengers,
-			});
-		})
-		.then(function () {
-			window.location.replace("second.html");
-		})
+	).then(() => {
+		userPage()
+	})
 		.catch((error) => {
 			const errorMessage = error.message;
-
 			alert(errorMessage);
 		});
 };
@@ -71,39 +45,9 @@ export const authLogin = () => {
 	const email = document.querySelector(".loginEmail").value;
 	const password = document.querySelector(".loginPassword").value;
 
-	const origin = document.querySelector(".optionOriginTitle").textContent;
-	const date = document.querySelector(".inputDate").value;
-	const destination = document.querySelector(
-		".optionDestinationTitle"
-	).textContent;
-	const passengers = document.querySelector(
-		".optionPassengersTitle"
-	).textContent;
-
-	signInWithEmailAndPassword(
-		auth,
-		email,
-		password,
-		origin,
-		date,
-		destination,
-		passengers
-	)
-		.then(async (userCredential) => {
-			// Signed in
-			const user = userCredential.user;
-			const dt = new Date();
-
-			update(ref(database, "users/" + user.uid), {
-				last_login: dt,
-				origin: origin,
-				date: date,
-				destination: destination,
-				passengers: passengers,
-			});
-		})
-		.then(function () {
-			window.location.replace("second.html");
+	signInWithEmailAndPassword(auth, email, password)
+		.then(() => {
+			userPage()
 		})
 		.catch((error) => {
 			const errorMessage = error.message;
@@ -114,7 +58,7 @@ export const authLogin = () => {
 export const authLogout = () => {
 	signOut(auth)
 		.then(function () {
-			window.location.replace("index.html");
+			// window.location.replace("index.html");
 		})
 		.catch((error) => {
 			const errorMessage = error.message;
