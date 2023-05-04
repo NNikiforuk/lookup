@@ -1,4 +1,6 @@
-const optionPassengersTitle = document.querySelector(".optionPassengersTitle");
+const optionPassengersTitles = document.querySelectorAll(
+	".optionPassengersTitle"
+);
 const warning = document.querySelector(".warning");
 
 export const countPassengers = () => {
@@ -15,8 +17,9 @@ export const countPassengers = () => {
 		selectedOptions[2] !== "0"
 	) {
 		warning.textContent = "Babies cannot fly on their own";
-		warning.classList.toggle("showWarning")
+		warning.classList.toggle("showWarning");
 	}
+	console.log("warning");
 
 	const initialValue = 0;
 	const sumWithInitial = selectedOptions.reduce(
@@ -31,12 +34,17 @@ export const countPassengers = () => {
 	if (sumWithInitial === 0) {
 		quantity = 9;
 		countToChange.textContent = `You can choose ${quantity} more passengers`;
+		console.log("1 opcja");
 	} else if (sumWithInitial >= 10) {
 		countToChange.textContent = `Too many passengers`;
+		console.log("2 opcja");
 	} else {
 		quantity = 9 - sumWithInitial;
 		countToChange.textContent = `You can choose ${quantity} more passengers`;
+		console.log("3 opcja");
 	}
 
-	optionPassengersTitle.textContent = sumWithInitial;
+	optionPassengersTitles.forEach((optionPassengersTitle) => {
+		optionPassengersTitle.textContent = sumWithInitial;
+	});
 };

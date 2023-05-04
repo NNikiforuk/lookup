@@ -11,39 +11,17 @@ const dropdownDestinations = document.querySelectorAll(".dropdownDestination");
 const optionDestinationTitles = document.querySelectorAll(
 	".optionDestinationTitle"
 );
-const dropdownPassengers = document.querySelector(".dropdownPassengers");
+const dropdownsPassengers = document.querySelectorAll(".dropdownPassengers");
 
 export const displayOptions = async () => {
 	const response = await axios.get(URL);
 	createOrigin(response.data.origin);
 	createDestination(response.data.destination);
-
-	response.data.passengers.forEach((element) => {
-		const passengerContainer = document.createElement("div");
-		const divLeft = document.createElement("div");
-		const divLeftTitle = document.createElement("div");
-		const divLeftDesc = document.createElement("div");
-		const selectRight = document.createElement("select");
-
-		for (let i = 0; i < 10; i++) {
-			const passengerOption = document.createElement("option");
-			passengerOption.value = i;
-			passengerOption.textContent = i;
-			passengerOption.classList.add("option");
-			selectRight.append(passengerOption);
-		}
-		passengerContainer.classList.add("passengerContainer");
-		divLeft.classList.add("passengerLeft");
-		divLeftTitle.textContent = element.description;
-		divLeftTitle.classList.add("passenger");
-		divLeftDesc.textContent = element.details;
-		divLeftDesc.classList.add("passengerDesc");
-		selectRight.classList.add("passengerSelect");
-
-		divLeft.append(divLeftTitle, divLeftDesc);
-		passengerContainer.append(divLeft, selectRight);
-		dropdownPassengers.append(passengerContainer);
-		selectRight.addEventListener("change", countPassengers);
+	dropdownsPassengers.forEach((dropdownPassengers) => {
+		const passengerContainers = createPassengers(response.data.passengers);
+		passengerContainers.forEach((passengerContainer) => {
+			dropdownPassengers.append(passengerContainer);
+		});
 	});
 	addPassengersDetails();
 };
@@ -83,4 +61,39 @@ const createDestination = (destinations) => {
 			});
 		});
 	});
+};
+
+const createPassengers = (passengers) => {
+	let containers = [];
+
+	passengers.forEach((element) => {
+		const passengerContainer = document.createElement("div");
+		const divLeft = document.createElement("div");
+		const divLeftTitle = document.createElement("div");
+		const divLeftDesc = document.createElement("div");
+		const selectRight = document.createElement("select");
+
+		for (let i = 0; i < 10; i++) {
+			const passengerOption = document.createElement("option");
+			passengerOption.value = i;
+			passengerOption.textContent = i;
+			passengerOption.classList.add("option");
+			selectRight.append(passengerOption);
+		}
+		passengerContainer.classList.add("passengerContainer");
+		divLeft.classList.add("passengerLeft");
+		divLeftTitle.textContent = element.description;
+		divLeftTitle.classList.add("passenger");
+		divLeftDesc.textContent = element.details;
+		divLeftDesc.classList.add("passengerDesc");
+		selectRight.classList.add("passengerSelect");
+		// selectRight.classList.add("passengerSelect_" + element.value);
+
+		divLeft.append(divLeftTitle, divLeftDesc);
+		passengerContainer.append(divLeft, selectRight);
+		containers.push(passengerContainer);
+		selectRight.addEventListener("change", countPassengers);
+	});
+
+	return containers;
 };

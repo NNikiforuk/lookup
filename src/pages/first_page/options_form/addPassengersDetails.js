@@ -1,6 +1,12 @@
-const dropdownPassengers = document.querySelector(".dropdownPassengers");
-
 export const addPassengersDetails = () => {
+	const dropdownsPassengers = document.querySelectorAll(".dropdownPassengers");
+
+	dropdownsPassengers.forEach((dropdownPassengers) => {
+		dropdownPassengers.append(addDetails());
+	});
+};
+
+const addDetails = () => {
 	const belowContainer = document.createElement("div");
 	const confirmBtn = document.createElement("button");
 	confirmBtn.classList.add("confirmSmallerBtn");
@@ -33,10 +39,11 @@ export const addPassengersDetails = () => {
 	countContainer.append(passengerCount, babyInfo);
 	passengerNote.append(infoIcon, infoText);
 	belowContainer.append(passengerNote, countContainer);
-	dropdownPassengers.append(belowContainer);
 
 	confirmBtn.addEventListener("click", (e) => {
 		const dropdown = e.target.parentElement.parentElement;
 		dropdown.classList.toggle("show");
 	});
+
+	return belowContainer;
 };
