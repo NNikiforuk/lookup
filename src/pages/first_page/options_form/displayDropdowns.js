@@ -7,8 +7,8 @@ const URL =
 	"https://raw.githubusercontent.com/NNikiforuk/lookup/c7ce7d82acc7dd3ed169734fb82d50afbcc0d597/endpoints/endpoints.json";
 const dropdownOrigins = document.querySelectorAll(".dropdownOrigin");
 const optionOriginTitles = document.querySelectorAll(".optionOriginTitle");
-const dropdownDestination = document.querySelector(".dropdownDestination");
-const optionDestinationTitle = document.querySelector(
+const dropdownDestinations = document.querySelectorAll(".dropdownDestination");
+const optionDestinationTitles = document.querySelectorAll(
 	".optionDestinationTitle"
 );
 const dropdownPassengers = document.querySelector(".dropdownPassengers");
@@ -16,16 +16,7 @@ const dropdownPassengers = document.querySelector(".dropdownPassengers");
 export const displayOptions = async () => {
 	const response = await axios.get(URL);
 	createOrigin(response.data.origin);
-
-	response.data.destination.forEach((element) => {
-		const li = document.createElement("li");
-		li.textContent = element.description;
-		li.classList.add("liItem");
-		dropdownDestination.appendChild(li);
-		li.addEventListener("click", () => {
-			optionDestinationTitle.textContent = li.textContent;
-		});
-	});
+	createDestination(response.data.destination);
 
 	response.data.passengers.forEach((element) => {
 		const passengerContainer = document.createElement("div");
@@ -58,7 +49,6 @@ export const displayOptions = async () => {
 };
 
 const createOrigin = (origins) => {
-	console.log(origins);
 	origins.forEach((element) => {
 		dropdownOrigins.forEach((dropdownOrigin) => {
 			const li = document.createElement("li");
@@ -72,6 +62,24 @@ const createOrigin = (origins) => {
 					dropdownOriginTitle.textContent = li.textContent;
 				});
 				cityInfo();
+			});
+		});
+	});
+};
+
+const createDestination = (destinations) => {
+	destinations.forEach((element) => {
+		dropdownDestinations.forEach((dropdownDestination) => {
+			const li = document.createElement("li");
+			li.textContent = element.description;
+			li.classList.add("liItem");
+
+			dropdownDestination.appendChild(li);
+
+			li.addEventListener("click", () => {
+				optionDestinationTitles.forEach((optionDestinationTitle) => {
+					optionDestinationTitle.textContent = li.textContent;
+				});
 			});
 		});
 	});
