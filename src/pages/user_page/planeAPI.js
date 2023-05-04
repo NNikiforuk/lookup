@@ -1,4 +1,51 @@
 import axios from "axios";
+import { ref, getDatabase, child, get } from "firebase/database";
+
+let origin;
+let date;
+let destination;
+let passengers;
+const originText = document.querySelector(".originText");
+const dateText = document.querySelector(".dateText");
+const destinationText = document.querySelector(".destinationText");
+const passengersText = document.querySelector(".passengersText");
+const URL =
+	"https://raw.githubusercontent.com/NNikiforuk/lookup/main/endpoints/endpoints.json";
+
+export const getUserData = () => {
+	const db = getDatabase();
+	const dbRef = ref(db);
+
+	get(child(dbRef, "users")).then((snapshot) => {
+		// console.log(snapshot);
+
+		let users = [];
+		snapshot.forEach((childSnapshot) => {
+			users.push(childSnapshot.val());
+		});
+		users = users[0];
+
+		origin = users.origin;
+		date = users.date;
+		destination = users.destination;
+		passengers = users.passengers;
+		// console.log(origin);
+
+		originText.textContent = origin;
+		dateText.textContent = date;
+		destinationText.textContent = destination;
+		passengersText.textContent = passengers;
+
+		// axios.get(URL).then((response) => {
+		// 	response.data.destination.forEach((element) => {
+		// 		console.log(element)
+		// 		element.filter(el => el.description === origin);
+		// 	});
+		// });
+
+		planeAPI();
+	});
+};
 
 const options = {
 	method: "POST",
@@ -39,3 +86,9 @@ export const planeAPI = async () => {
 		console.error(error);
 	}
 };
+
+
+
+
+
+
