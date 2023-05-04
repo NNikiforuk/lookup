@@ -1,0 +1,57 @@
+{
+	"origin": [
+		{
+			"id": 1,
+			"value": "wroclaw",
+			"description": "Wroclaw",
+			"code": "WRO"
+		}
+	],
+	"destination": [
+		{
+			"id": 1,
+			"value": "krakow",
+			"description": "Krakow",
+			"code": "KRK"
+		},
+		{
+			"id": 2,
+			"value": "paris",
+			"description": "Paris",
+			"code": "PAR"
+			
+		},
+		{
+			"id": 3,
+			"value": "newyork",
+			"description": "New York",
+			"code": "NYC"
+		},
+		{
+			"id": 4,
+			"value": "warsaw",
+			"description": "Warsaw",
+			"code": "WAW"
+		}
+	],
+	"passengers": [
+		{
+			"id": 1,
+			"value": "adults",
+			"description": "Adults",
+			"details": ">16 years old"
+		},
+		{
+			"id": 2,
+			"value": "children",
+			"description": "Children",
+			"details": "1-16 years old"
+		},
+		{
+			"id": 3,
+			"value": "babies",
+			"description": "Babies",
+			"details": "<1 year old"
+		}
+	]
+}
