@@ -1,3 +1,6 @@
+import { userData } from "../../../config/firebase";
+import { handleGoToSummary } from "../navbar/routing";
+
 const optionOriginTitle = document.querySelector(".optionOriginTitle");
 const inputDate = document.querySelector(".inputDate");
 const optionDestinationTitle = document.querySelector(
@@ -11,15 +14,18 @@ let originalValue = inputDate.value;
 let dateChanged;
 
 export const isFormFilled = () => {
-	console.log("OK")
-	if (
-		optionOriginTitle.textContent === "Origin" ||
-		dateChanged === false ||
-		optionDestinationTitle.textContent === "Destination" ||
-		optionPassengersTitle.textContent === "Passengers"
-	) {
-		warning.textContent = "Fill the fields";
-		warning.classList.toggle("showWarning");
+	if (userData().isUserLoggedIn === true) {
+		if (
+			optionOriginTitle.textContent === "Origin" ||
+			dateChanged === false ||
+			optionDestinationTitle.textContent === "Destination" ||
+			optionPassengersTitle.textContent === "Passengers"
+		) {
+			warning.textContent = "Fill the fields";
+			warning.classList.toggle("showWarning");
+		} else {
+			handleGoToSummary()
+		}
 	} else {
 		registerLogin.classList.add("show");
 	}

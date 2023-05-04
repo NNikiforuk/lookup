@@ -49,11 +49,17 @@ export const authRegister = async () => {
 };
 
 export const authLogin = async () => {
-	const email = document.querySelector(".loginEmail").value;
-	const password = document.querySelector(".loginPassword").value;
+	// const email = document.querySelector(".loginEmail").value;
+	// const password = document.querySelector(".loginPassword").value;
+
+	const email = "jakub@mail.com";
+	const password = "iloveniki";
 
 	try {
 		await signInWithEmailAndPassword(auth, email, password);
+
+		isUserLoggedIn = true;
+
 		handleUserLoggedIn();
 	} catch (error) {
 		const errorMessage = error.message;

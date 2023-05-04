@@ -20,6 +20,13 @@ export const handleUserLoggedIn = () => {
 	navbarLogout.classList.add("show");
 };
 
+export const handleGoToSummary = () => {
+	header.classList.toggle("hide");
+	wrapper.classList.toggle("hide");
+	secondPage.classList.toggle("show")
+
+};
+
 export const homePage = () => {
 	signOut(auth).then(function () {
 		registerLogin.classList.toggle("show");
