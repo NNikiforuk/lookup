@@ -4,7 +4,7 @@ import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 } from "firebase/auth";
-import { userPage } from "../pages/landing_page/navbar/routing";
+import { userPage } from "../pages/first_page/navbar/routing";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyCSAgcs76sBvOhtfUkAor-dHDoumhBbXdU",
@@ -20,23 +20,21 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
-
-
+const warning = document.querySelector(".warning");
 
 export const authRegister = () => {
 	const email = document.querySelector(".registerEmail").value;
 	const password = document.querySelector(".registerPassword").value;
 
-	createUserWithEmailAndPassword(
-		auth,
-		email,
-		password,
-	).then(() => {
-		userPage()
-	})
+	createUserWithEmailAndPassword(auth, email, password)
+		.then(() => {
+			userPage();
+			warning.classList.remove("show");
+		})
 		.catch((error) => {
 			const errorMessage = error.message;
-			alert(errorMessage);
+			warning.textContent = errorMessage;
+			warning.classList.toggle("show")
 		});
 };
 
@@ -46,12 +44,11 @@ export const authLogin = () => {
 
 	signInWithEmailAndPassword(auth, email, password)
 		.then(() => {
-			userPage()
+			userPage();
 		})
 		.catch((error) => {
 			const errorMessage = error.message;
-			alert(errorMessage);
+			warning.textContent = errorMessage;
+			warning.classList.toggle("show");
 		});
 };
-
-

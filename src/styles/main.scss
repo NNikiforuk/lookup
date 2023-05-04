@@ -34,27 +34,22 @@
 
 	.warning {
 		position: fixed;
-		left: 3rem;
-		bottom: 20px;
+		bottom: 0;
 		background-color: #f2f2f2;
 		padding: 2em;
-		border-radius: 1rem;
-		display: flex;
-		align-items: center;
 		color: red;
 		font-weight: bold;
 		overflow: hidden;
-		z-index: 50;
+		z-index: 150;
 		height: auto;
-		transform: translateX(-10rem);
-		transition: all 0.2s ease-in-out;
-		visibility: hidden;
-		min-width: 50%;
+		display: none;
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
 	}
 
-	.show {
-		visibility: visible;
-		transform: translateX(-2rem);
+	.showWarning {
+		display: block;
 	}
 }
 
@@ -70,7 +65,6 @@
 
 @media only screen and (min-width: 768px) {
 	.main {
-		margin-top: 4rem;
 		.header {
 			width: 100vw;
 			background-color: rgb(246, 242, 242);
@@ -86,6 +80,10 @@
 				border-left: 15px solid #12345c;
 			}
 		}
+
+		.warning {
+			font-size: 2em;
+		}
 	}
 }
 
@@ -93,13 +91,16 @@
 	.main {
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
 		align-items: center;
-		margin-top: 4rem;
 		height: auto;
+		margin: 0 auto;
+		width: 100vw;
+		position: relative;
 
 		.header {
 			position: relative;
-			width: 90vw;
+			width: 90%;
 			height: 90%;
 
 			.headerImg {

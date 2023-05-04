@@ -11,6 +11,7 @@ let originalValue = inputDate.value;
 let dateChanged;
 
 export const isFormFilled = () => {
+	console.log("OK")
 	if (
 		optionOriginTitle.textContent === "Origin" ||
 		dateChanged === false ||
@@ -18,7 +19,7 @@ export const isFormFilled = () => {
 		optionPassengersTitle.textContent === "Passengers"
 	) {
 		warning.textContent = "Fill the fields";
-		warning.classList.toggle("show");
+		warning.classList.toggle("showWarning");
 	} else {
 		registerLogin.classList.add("show");
 	}
@@ -37,7 +38,7 @@ const ifDateChanged = () => {
 };
 
 export const closeWarning = () => {
-	warning.classList.toggle("show");
+	warning.classList.toggle("showWarning");
 };
 
 ifDateChanged();

@@ -140,25 +140,20 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
-                margin: 0 auto;
+				margin: 0 auto;
 				margin-top: 2rem;
 			}
-		}
-
-		.show {
-			display: block;
 		}
 	}
 }
 
 .show {
-	display: block;
+	display: flex;
 }
 
 @media only screen and (min-width: 768px) {
 	.registerLogin {
 		height: 90rem;
-		top: -4rem;
 
 		.container {
 			.title {
@@ -221,4 +216,69 @@
 	}
 }
 
+@media only screen and (min-width: 1024px) {
+	.registerLogin {
+		height: 90rem;
+		width: 100%;
 
+
+		.container {
+			.title {
+				.titleIcon {
+					font-size: 3em;
+				}
+
+				.titleName {
+					font-size: 3em;
+				}
+			}
+
+			.form {
+				display: flex;
+				flex-direction: column;
+
+				.loginEmail,
+				.loginPassword {
+					border-bottom-left-radius: 1.8em;
+					border-top-right-radius: 1.8em;
+					font-size: 1.5em;
+					width: 25rem;
+					border: 3.5px solid #4392f1;
+				}
+			}
+
+			.loginBtn {
+				padding: 1.2em;
+				width: 15rem;
+				border-bottom-left-radius: 1.8em;
+				border-top-right-radius: 1.8em;
+				font-size: 1.5em;
+			}
+
+			.openRegister {
+				font-size: 1.5em;
+				margin-bottom: 1rem;
+			}
+			.register {
+				.registerForm {
+					.registerEmail,
+					.registerPassword {
+						border-bottom-left-radius: 1.8em;
+						border-top-right-radius: 1.8em;
+						font-size: 1.5em;
+						width: 25rem;
+						border: 3.5px solid #4392f1;
+					}
+				}
+
+				.registerBtn {
+					padding: 1.2em;
+					width: 15rem;
+					border-bottom-left-radius: 1.8em;
+					border-top-right-radius: 1.8em;
+					font-size: 1.5em;
+				}
+			}
+		}
+	}
+}

@@ -3,9 +3,10 @@ import * as xd from "./openWeatherMapApiKey.json";
 const { API_KEY } = xd;
 const API_LINK = "https://api.openweathermap.org/data/2.5/weather?q=";
 const API_UNITS = "&units=metric";
-const weatherInfo = document.querySelector(".weatherInfo");
+const currentDate = document.querySelector(".currentDate");
+const currentHour = document.querySelector(".currentHour");
+const currentTemp = document.querySelector(".currentTemp");
 const optionOriginTitle = document.querySelector(".optionOriginTitle");
-
 
 export const cityInfo = () => {
 	const city = optionOriginTitle.textContent;
@@ -22,8 +23,9 @@ export const cityInfo = () => {
 			const hour = date.getHours();
 			const minute = date.getMinutes();
 
-			weatherInfo.textContent =
-				temperatureContainer + "  " + dateDetails + "  " + hour + ":" + minute;
+			currentDate.textContent = `Today in ${city}: ${dateDetails}`
+			currentHour.textContent = hour + ":" + minute
+			currentTemp.textContent = temperatureContainer
 		});
 	}
 };

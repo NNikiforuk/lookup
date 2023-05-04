@@ -104,7 +104,6 @@
 
 				.logo {
 					width: 3rem;
-					margin: 0;
 				}
 
 				.logoText {
@@ -113,7 +112,6 @@
 				}
 			}
 
-			.navbarLogin,
 			.navbarLogout {
 				display: flex;
 				justify-content: center;
@@ -122,16 +120,24 @@
 				height: 100%;
 				max-width: 10rem;
 				font-size: 1.5em;
-				border-top-right-radius: 1.5em;
-				border-bottom-left-radius: 1.5em;
-				border-top-left-radius: 0.7em;
-				border-bottom-right-radius: 0.7em;
+				border-top-right-radius: 0.5em;
+				border-bottom-left-radius: 0;
+				border-top-left-radius: 0.5em;
+				border-bottom-right-radius: 0;
 
 				.fa-plane {
 					display: block;
 					font-size: 0.4em;
 					margin-top: 0.5rem;
 				}
+			}
+
+			.navbarLogin {
+				display: none;
+				border-top-right-radius: 0.5em;
+				border-bottom-left-radius: 0;
+				border-top-left-radius: 0.5em;
+				border-bottom-right-radius: 0;
 			}
 		}
 	}

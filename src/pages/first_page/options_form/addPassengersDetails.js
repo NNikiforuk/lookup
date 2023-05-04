@@ -1,6 +1,6 @@
 const dropdownPassengers = document.querySelector(".dropdownPassengers");
 
-export const addBelowPassenger = () => {
+export const addPassengersDetails = () => {
 	const belowContainer = document.createElement("div");
 	const confirmBtn = document.createElement("button");
 	confirmBtn.classList.add("confirmSmallerBtn");

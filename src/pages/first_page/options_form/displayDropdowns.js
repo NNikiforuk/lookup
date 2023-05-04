@@ -1,6 +1,6 @@
 import { cityInfo } from "./cityInfo.js";
 import { countPassengers } from "./countPassengers.js";
-import { addBelowPassenger } from "./addBelowPassenger.js";
+import { addPassengersDetails } from "./addPassengersDetails.js"
 
 const axios = require("axios");
 const URL =
@@ -61,6 +61,6 @@ export const displayOptions = () => {
 				dropdownPassengers.append(passengerContainer);
 				selectRight.addEventListener("change", countPassengers);
 			});
-		addBelowPassenger();
+		addPassengersDetails()
 	});
 };

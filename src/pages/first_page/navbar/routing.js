@@ -12,6 +12,7 @@ const firstOrigin = document.querySelector("#firstOrigin");
 const firstDate = document.querySelector("#firstDate");
 const firstDestination = document.querySelector("#firstDestination");
 const firstPassengers = document.querySelector("#firstPassengers");
+const weatherInfo = document.querySelector(".weatherInfo");
 
 const secondOrigin = document.querySelector("#secondOrigin");
 const secondDate = document.querySelector("#secondDate");
@@ -34,19 +35,17 @@ export const userPage = () => {
 
 export const homePage = () => {
 	signOut(auth).then(function () {
-		registerLogin.classList.add("hide");
+		registerLogin.classList.toggle("show");
 		navbarLogin.classList.remove("hide");
 		navbarLogout.classList.remove("show");
 		header.classList.remove("hide");
 		wrapper.classList.remove("hide");
 		secondPage.classList.remove("show");
 
-		console.log(firstOrigin)
-		console.log(firstOrigin.textContent)
-
 		firstOrigin.textContent = "Origin";
 		firstDate.value = "";
 		firstDestination.textContent = "Destination";
 		firstPassengers.textContent = "Passengers";
+		weatherInfo.textContent = "";
 	});
 };

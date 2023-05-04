@@ -1,4 +1,5 @@
 const optionPassengersTitle = document.querySelector(".optionPassengersTitle");
+const warning = document.querySelector(".warning");
 
 export const countPassengers = () => {
 	const selectedOptions = [];
@@ -13,7 +14,8 @@ export const countPassengers = () => {
 		selectedOptions[1] === "0" &&
 		selectedOptions[2] !== "0"
 	) {
-		alert("Babies cannot fly on their own");
+		warning.textContent = "Babies cannot fly on their own";
+		warning.classList.toggle("showWarning")
 	}
 
 	const initialValue = 0;

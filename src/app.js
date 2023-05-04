@@ -1,13 +1,13 @@
-import { toggleMenu } from "./pages/landing_page/form/toggleMenu";
-import { displayOptions } from "./pages/landing_page/form/displayDropdowns";
-import { isFormFilled } from "./pages/landing_page/form/isFormFilled";
+import { toggleMenu } from "./pages/first_page/options_form/toggleMenu";
+import { displayOptions } from "./pages/first_page/options_form/displayDropdowns";
+import { isFormFilled } from "./pages/first_page/options_form/isFormFilled";
 import {
 	showLoginForm,
 	showRegisterForm,
-} from "./pages/landing_page/navbar/login";
+} from "./pages/first_page/navbar/login";
 import { authRegister, authLogin } from "./config/firebase";
-import { homePage } from "./pages/landing_page/navbar/routing";
-import { closeWarning } from "./pages/landing_page/form/isFormFilled";
+import { homePage } from "./pages/first_page/navbar/routing";
+import { closeWarning } from "./pages/first_page/options_form/isFormFilled";
 
 const confirmBtn = document.querySelector(".confirmBtn");
 const navbarLogin = document.querySelector(".navbarLogin");
@@ -26,5 +26,5 @@ export const mainFunction = () => {
 	registerBtn.addEventListener("click", authRegister);
 	loginBtn.addEventListener("click", authLogin);
 	logoutBtn.addEventListener("click", homePage);
-	warning.addEventListener("click", closeWarning)
+	warning.addEventListener("click", closeWarning);
 };
