@@ -144,11 +144,11 @@
 				margin-top: 2rem;
 			}
 		}
-	}
-}
 
-.show {
-	display: flex;
+		.showRegister {
+			display: flex;
+		}
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -220,7 +220,6 @@
 	.registerLogin {
 		height: 90rem;
 		width: 100%;
-
 
 		.container {
 			.title {
