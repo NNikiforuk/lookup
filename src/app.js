@@ -5,7 +5,9 @@ import {
 	showLoginForm,
 	showRegisterForm,
 } from "./pages/landing_page/navbar/login";
-import { authRegister, authLogin, authLogout } from "./config/firebase";
+import { authRegister, authLogin } from "./config/firebase";
+import { homePage } from "./pages/landing_page/navbar/routing";
+import { closeWarning } from "./pages/landing_page/form/isFormFilled";
 
 const confirmBtn = document.querySelector(".confirmBtn");
 const navbarLogin = document.querySelector(".navbarLogin");
@@ -13,6 +15,7 @@ const openRegister = document.querySelector(".openRegister");
 const registerBtn = document.querySelector(".registerBtn");
 const loginBtn = document.querySelector(".loginBtn");
 const logoutBtn = document.querySelector(".navbarLogout");
+const warning = document.querySelector(".warning");
 
 export const mainFunction = () => {
 	displayOptions();
@@ -22,5 +25,6 @@ export const mainFunction = () => {
 	openRegister.addEventListener("click", showRegisterForm);
 	registerBtn.addEventListener("click", authRegister);
 	loginBtn.addEventListener("click", authLogin);
-	logoutBtn.addEventListener("click", authLogout);
+	logoutBtn.addEventListener("click", homePage);
+	warning.addEventListener("click", closeWarning)
 };

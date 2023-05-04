@@ -31,6 +31,31 @@
 	.hide {
 		display: none;
 	}
+
+	.warning {
+		position: fixed;
+		left: 3rem;
+		bottom: 20px;
+		background-color: #f2f2f2;
+		padding: 2em;
+		border-radius: 1rem;
+		display: flex;
+		align-items: center;
+		color: red;
+		font-weight: bold;
+		overflow: hidden;
+		z-index: 50;
+		height: auto;
+		transform: translateX(-10rem);
+		transition: all 0.2s ease-in-out;
+		visibility: hidden;
+		min-width: 50%;
+	}
+
+	.show {
+		visibility: visible;
+		transform: translateX(-2rem);
+	}
 }
 
 @media only screen and (min-width: 375px) {
@@ -79,13 +104,12 @@
 
 			.headerImg {
 				width: 70%;
-                max-width: 80rem;
-
+				max-width: 80rem;
 			}
 
 			.headerText {
 				position: absolute;
-                right: 0;
+				right: 0;
 			}
 		}
 	}

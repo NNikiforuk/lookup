@@ -3,9 +3,8 @@ import {
 	getAuth,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
-	signOut,
 } from "firebase/auth";
-import { userPage } from "../pages/landing_page/navbar/userPage";
+import { userPage } from "../pages/landing_page/navbar/routing";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyCSAgcs76sBvOhtfUkAor-dHDoumhBbXdU",
@@ -20,7 +19,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+export const auth = getAuth();
 
 
 
@@ -55,13 +54,4 @@ export const authLogin = () => {
 		});
 };
 
-export const authLogout = () => {
-	signOut(auth)
-		.then(function () {
-			// window.location.replace("index.html");
-		})
-		.catch((error) => {
-			const errorMessage = error.message;
-			alert(errorMessage);
-		});
-};
+

@@ -5,6 +5,7 @@ const optionDestinationTitle = document.querySelector(
 );
 const optionPassengersTitle = document.querySelector(".optionPassengersTitle");
 const registerLogin = document.querySelector(".registerLogin");
+const warning = document.querySelector(".warning");
 
 let originalValue = inputDate.value;
 let dateChanged;
@@ -16,9 +17,10 @@ export const isFormFilled = () => {
 		optionDestinationTitle.textContent === "Destination" ||
 		optionPassengersTitle.textContent === "Passengers"
 	) {
-		alert("Wypełnij wszystkie pola");
+		warning.textContent = "Fill the fields";
+		warning.classList.toggle("show");
 	} else {
-		registerLogin.classList.add("show")
+		registerLogin.classList.add("show");
 	}
 };
 
@@ -32,6 +34,10 @@ const ifDateChanged = () => {
 			dateChanged = false;
 		}
 	});
+};
+
+export const closeWarning = () => {
+	warning.classList.toggle("show");
 };
 
 ifDateChanged();

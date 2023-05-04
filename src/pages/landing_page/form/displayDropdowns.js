@@ -4,7 +4,7 @@ import { addBelowPassenger } from "./addBelowPassenger.js";
 
 const axios = require("axios");
 const URL =
-	"https://raw.githubusercontent.com/NNikiforuk/lookup/main/endpoints/endpoints.json";
+	"https://raw.githubusercontent.com/NNikiforuk/lookup/c7ce7d82acc7dd3ed169734fb82d50afbcc0d597/endpoints/endpoints.json";
 const dropdownOrigin = document.querySelector(".dropdownOrigin");
 const optionOriginTitle = document.querySelector(".optionOriginTitle");
 const dropdownDestination = document.querySelector(".dropdownDestination");
