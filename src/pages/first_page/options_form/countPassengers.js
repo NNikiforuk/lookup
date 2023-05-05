@@ -3,9 +3,9 @@ const optionPassengersTitles = document.querySelectorAll(
 );
 const warning = document.querySelector(".warning");
 
-let countAdults = 0;
-let countChildren = 0;
-let countBabies = 0;
+export let countAdults = 0;
+export let countChildren = 0;
+export let countBabies = 0;
 
 export const handlePassengerCountChange = (e) => {
 	if (e.target.classList.contains("passengerSelect_adults")) {
@@ -49,11 +49,13 @@ export const countPassengers = () => {
 	});
 
 	if (
-		selectedOptions[0] === "0" &&
-		selectedOptions[1] === "0" &&
-		selectedOptions[2] !== "0"
+		(selectedOptions[0] === "0" &&
+			selectedOptions[1] === "0" &&
+			selectedOptions[2] !== "0") ||
+		selectedOptions[2] > "0"
 	) {
-		warning.textContent = "Babies cannot fly on their own";
+		warning.textContent =
+			"Babies cannot fly on their own. Only 1 baby (aged 0-2) per adult is allowed";
 		warning.classList.toggle("showWarning");
 	}
 

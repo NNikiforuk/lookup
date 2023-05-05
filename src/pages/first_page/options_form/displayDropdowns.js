@@ -30,7 +30,7 @@ const createOrigin = (origins) => {
 	origins.forEach((element) => {
 		dropdownOrigins.forEach((dropdownOrigin) => {
 			const li = document.createElement("li");
-			li.textContent = element.description;
+			li.textContent = element.description + " (" + element.code + ")";
 			li.classList.add("liItem");
 
 			dropdownOrigin.appendChild(li);
@@ -49,7 +49,7 @@ const createDestination = (destinations) => {
 	destinations.forEach((element) => {
 		dropdownDestinations.forEach((dropdownDestination) => {
 			const li = document.createElement("li");
-			li.textContent = element.description;
+			li.textContent = `${element.description} (${element.code})`;
 			li.classList.add("liItem");
 
 			dropdownDestination.appendChild(li);

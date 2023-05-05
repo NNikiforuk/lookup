@@ -1,11 +1,30 @@
 import axios from "axios";
 import { selectedDate } from "../first_page/options_form/isFormFilled";
+import {
+	countAdults,
+	countChildren,
+	countBabies,
+} from "../first_page/options_form/countPassengers";
 
 const summary = document.querySelector(".summary");
 const warning = document.querySelector(".warning");
+const secondOrigin = document.querySelector("#secondOrigin");
+const secondDestination = document.querySelector("#secondDestination");
 
 export const fetchFlightData = async () => {
 	const dateData = extractDateFromString(selectedDate);
+	const airportOrigin = secondOrigin.textContent.slice(-4, -1);
+	const airportDestination = secondDestination.textContent.slice(-4, -1);
+	let childrenAges = [];
+
+	for (let i = 0; i < countChildren; i++) {
+		const child = 8;
+		childrenAges.push(child);
+	}
+	for (let i = 0; i < countBabies; i++) {
+		const baby = 1;
+		childrenAges.push(baby);
+	}
 
 	const options = {
 		method: "POST",
@@ -22,14 +41,14 @@ export const fetchFlightData = async () => {
 				currency: "PLN",
 				queryLegs: [
 					{
-						originPlaceId: { iata: "WRO" },
-						destinationPlaceId: { iata: "KRK" },
+						originPlaceId: { iata: airportOrigin },
+						destinationPlaceId: { iata: airportDestination },
 						date: dateData,
 					},
 				],
 				cabinClass: "CABIN_CLASS_ECONOMY",
-				adults: 2,
-				childrenAges: [3, 9],
+				adults: countAdults,
+				childrenAges,
 			},
 		},
 	};

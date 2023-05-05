@@ -9,7 +9,7 @@ const currentTemps = document.querySelectorAll(".currentTemp");
 const optionOriginTitle = document.querySelector(".optionOriginTitle");
 
 export const cityInfo = () => {
-	const city = optionOriginTitle.textContent;
+	const city = optionOriginTitle.textContent.slice(0, -6)
 	const URL = API_LINK + city + API_KEY + API_UNITS;
 
 	if (city !== "Origin") {
