@@ -10,11 +10,15 @@ export const planeAPI = async () => {
 
 	const createFlightCard = (flight) => {
 		const flightCard = document.createElement("div");
-		const agentId = document.createElement("div");
+		const agentId = document.createElement("a");
 		const price = document.createElement("div");
 
-		agentId.textContent = flight.agentId;
-		price.textContent = flight.price;
+		agentId.textContent = `Agent: ${flight.agentId}`;
+        agentId.classList.add("agentId")
+        agentId.href = flight.deepLink;
+        agentId.setAttribute("target", "_blank");
+		price.textContent = `Price: ${flight.price} PLN`;
+        price.classList.add("price");
 		flightCard.append(agentId, price);
 
 		return flightCard;

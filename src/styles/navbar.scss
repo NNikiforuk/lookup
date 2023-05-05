@@ -1,11 +1,11 @@
 .navbar {
 	display: flex;
-	width: 100%;
+	width: 100vw;
 	height: 4rem;
 
 	.container {
 		display: flex;
-		width: 100%;
+		width: 100vw;
 		height: 100%;
 		justify-content: space-between;
 		align-items: center;
@@ -62,8 +62,8 @@
 
 @media only screen and (min-width: 768px) {
 	.navbar {
-		height: 5rem;
-
+		margin: 0 auto;
+		width: 90vw;
 		.container {
 			.navbarLogo {
 				.logo {

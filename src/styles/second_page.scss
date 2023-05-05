@@ -2,10 +2,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	grid-template-columns: repeat(2, 1fr);
-	box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
 	width: 100vw;
-	display: none;
+	// display: none;
 
 	.form {
 		display: flex;
@@ -173,6 +173,36 @@
 		}
 	}
 
+	.summary {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+		padding: 2em;
+		margin: 2rem;
+		width: 100%;
+		color: grey;
+
+		.title {
+			font-weight: bold;
+			border-bottom: 1px solid #999;
+			padding: 0.5em 1em;
+			margin-bottom: 1rem;
+		}
+
+		.agentId,
+		.price {
+			padding: 0.2em;
+		}
+
+		.agentId {
+			cursor: pointer;
+			text-decoration: none;
+			color: grey;
+		}
+	}
+
 	.confirmBtn {
 		border: none;
 		position: relative;
@@ -202,10 +232,6 @@
 
 @media only screen and (min-width: 768px) {
 	.secondPage {
-		box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
-		top: -4rem;
-		position: relative;
-
 		.form {
 			display: flex;
 			flex-direction: column;
@@ -236,6 +262,11 @@
 				margin-top: 1rem;
 			}
 		}
+
+		.summary {
+			width: 50%;
+			font-size: 1em;
+		}
 	}
 }
 
@@ -246,13 +277,16 @@
 		.form {
 			font-size: 1.2em;
 
-
-
 			.confirmBtn {
 				margin-top: 2rem;
 				font-size: 1.2em;
 				padding: 1.2em;
 			}
+		}
+
+		.summary {
+			width: 50%;
+			font-size: 1.5em;
 		}
 	}
 }
