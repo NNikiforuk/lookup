@@ -2,9 +2,26 @@ import axios from "axios";
 
 import * as data from "./data.json";
 
-const summary = document.querySelector("#secondOrigin");
+const summary = document.querySelector(".summary");
 
 export const planeAPI = async () => {
+	const flights = sumFlights(data);
+	const flight = flights[0];
+
+	const createFlightCard = (flight) => {
+		const flightCard = document.createElement("div");
+		const agentId = document.createElement("div");
+		const price = document.createElement("div");
+
+		agentId.textContent = flight.agentId;
+		price.textContent = flight.price;
+		flightCard.append(agentId, price);
+
+		return flightCard;
+	};
+
+	summary.append(createFlightCard(flight));
+
 	// const options = {
 	// 	method: "POST",
 	// 	url: "https://skyscanner-api.p.rapidapi.com/v3/flights/live/search/create",
@@ -36,14 +53,14 @@ export const planeAPI = async () => {
 	// 	},
 	// };
 
-	try {
-		// const response = await axios.request(options);
-		const results = response.data;
-		// const results = response.data.content.results.itineraries[0].pricingOptions[0].items[0]
-		// summary.textContent = `Link: ${results.deepLink}, price: ${results.price.amount} PLN`
-	} catch (error) {
-		console.error(error);
-	}
+	// try {
+	// 	// const response = await axios.request(options);
+	// 	const results = response.data;
+	// 	// const results = response.data.content.results.itineraries[0].pricingOptions[0].items[0]
+	// 	// summary.textContent = `Link: ${results.deepLink}, price: ${results.price.amount} PLN`
+	// } catch (error) {
+	// 	console.error(error);
+	// }
 };
 
 const extractData = (flightData) => {
@@ -79,3 +96,5 @@ export const sumFlights = (data) => {
 	}
 	return array;
 };
+
+planeAPI();
