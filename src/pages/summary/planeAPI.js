@@ -1,8 +1,12 @@
 import axios from "axios";
+import { selectedDate } from "../first_page/options_form/isFormFilled";
 
 const summary = document.querySelector(".summary");
+const warning = document.querySelector(".warning");
 
-const fetchFlightData = async () => {
+export const fetchFlightData = async () => {
+	const dateData = extractDateFromString(selectedDate);
+
 	const options = {
 		method: "POST",
 		url: "https://skyscanner-api.p.rapidapi.com/v3/flights/live/search/create",
@@ -20,11 +24,7 @@ const fetchFlightData = async () => {
 					{
 						originPlaceId: { iata: "WRO" },
 						destinationPlaceId: { iata: "KRK" },
-						date: {
-							year: 2023,
-							month: 5,
-							day: 5,
-						},
+						date: dateData,
 					},
 				],
 				cabinClass: "CABIN_CLASS_ECONOMY",
@@ -39,27 +39,31 @@ const fetchFlightData = async () => {
 };
 
 export const planeAPI = async () => {
-	const data = await fetchFlightData()
+	const data = await fetchFlightData();
 	const flights = sumFlights(data);
 	const flight = flights[0];
 
-	const createFlightCard = (flight) => {
-		const flightCard = document.createElement("div");
-		const agentId = document.createElement("a");
-		const price = document.createElement("div");
+	if (flights.length === 0) {
+		warning.textContent = "No flight found";
+		warning.classList.toggle("showWarning");
+	} else {
+		const createFlightCard = (flight) => {
+			const flightCard = document.createElement("div");
+			const agentId = document.createElement("a");
+			const price = document.createElement("div");
 
-		agentId.textContent = `Agent: ${flight.agentId}`;
-		agentId.classList.add("agentId");
-		agentId.href = flight.deepLink;
-		agentId.setAttribute("target", "_blank");
-		price.textContent = `Price: ${flight.price} PLN`;
-		price.classList.add("price");
-		flightCard.append(agentId, price);
+			agentId.textContent = `Agent: ${flight.agentId}`;
+			agentId.classList.add("agentId");
+			agentId.href = flight.deepLink;
+			agentId.setAttribute("target", "_blank");
+			price.textContent = `Price: ${flight.price} PLN`;
+			price.classList.add("price");
+			flightCard.append(agentId, price);
 
-		return flightCard;
-	};
-
-	summary.append(createFlightCard(flight));
+			return flightCard;
+		};
+		summary.append(createFlightCard(flight));
+	}
 };
 
 const extractData = (flightData) => {
@@ -96,3 +100,17 @@ export const sumFlights = (data) => {
 	return array;
 };
 
+export const extractDateFromString = (dateString) => {
+	const dataSplitted = dateString.split("-");
+	const year = Number(dataSplitted[0]);
+	const month = Number(dataSplitted[1]);
+	const day = Number(dataSplitted[2]);
+
+	const dataInObject = {
+		year: year,
+		month: month,
+		day: day,
+	};
+
+	return dataInObject;
+};

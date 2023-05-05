@@ -10,7 +10,7 @@ const optionPassengersTitle = document.querySelector(".optionPassengersTitle");
 const registerLogin = document.querySelector(".registerLogin");
 const warning = document.querySelector(".warning");
 
-let selectedDate = "";
+export let selectedDate = "";
 
 export const isFormFilled = () => {
 	if (userData().isUserLoggedIn === true) {

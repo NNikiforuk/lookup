@@ -8,6 +8,7 @@ import {
 import { authRegister, authLogin } from "./config/firebase";
 import { homePage } from "./pages/first_page/navbar/routing";
 import { closeWarning } from "./pages/first_page/options_form/isFormFilled";
+import { fetchFlightData } from "./pages/summary/planeAPI";
 
 const confirmBtn = document.querySelector(".confirmBtn");
 const navbarLogin = document.querySelector(".navbarLogin");
@@ -16,6 +17,7 @@ const registerBtn = document.querySelector(".registerBtn");
 const loginBtn = document.querySelector(".loginBtn");
 const logoutBtn = document.querySelector(".navbarLogout");
 const warning = document.querySelector(".warning");
+const secondConfirmBtn = document.querySelector(".secondConfirmBtn");
 
 export const mainFunction = () => {
 	displayOptions();
@@ -27,4 +29,5 @@ export const mainFunction = () => {
 	loginBtn.addEventListener("click", authLogin);
 	logoutBtn.addEventListener("click", homePage);
 	warning.addEventListener("click", closeWarning);
+	secondConfirmBtn.addEventListener("click", fetchFlightData)
 };
