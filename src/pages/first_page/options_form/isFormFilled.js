@@ -38,7 +38,6 @@ const ifDateChanged = () => {
 
 const handleDateChange = (e) => {
 	selectedDate = e.target.value;
-	console.log(selectedDate);
 	for (let inputDate of inputDates) {
 		inputDate.value = selectedDate;
 	}
