@@ -10,14 +10,13 @@ const optionPassengersTitle = document.querySelector(".optionPassengersTitle");
 const registerLogin = document.querySelector(".registerLogin");
 const warning = document.querySelector(".warning");
 
-let originalValue = inputDate.value;
-let dateChanged;
+let selectedDate = "";
 
 export const isFormFilled = () => {
 	if (userData().isUserLoggedIn === true) {
 		if (
 			optionOriginTitle.textContent === "Origin" ||
-			dateChanged === false ||
+			selectedDate === "" ||
 			optionDestinationTitle.textContent === "Destination" ||
 			optionPassengersTitle.textContent === "Passengers"
 		) {
@@ -32,17 +31,17 @@ export const isFormFilled = () => {
 };
 
 const ifDateChanged = () => {
-	inputDates.forEach((inputDate) => {
-		inputDate.addEventListener("input", () => {
-			const newValue = inputDate.value;
+	for (let inputDate of inputDates) {
+		inputDate.addEventListener("input", handleDateChange);
+	}
+};
 
-			if (newValue !== originalValue) {
-				dateChanged = true;
-			} else {
-				dateChanged = false;
-			}
-		});
-	});
+const handleDateChange = (e) => {
+	selectedDate = e.target.value;
+	console.log(selectedDate);
+	for (let inputDate of inputDates) {
+		inputDate.value = selectedDate;
+	}
 };
 
 export const closeWarning = () => {
