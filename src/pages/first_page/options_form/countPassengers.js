@@ -9,13 +9,13 @@ let countBabies = 0;
 
 export const handlePassengerCountChange = (e) => {
 	if (e.target.classList.contains("passengerSelect_adults")) {
-		countAdults = parseInt(e.target.value)
+		countAdults = parseInt(e.target.value);
 	}
 	if (e.target.classList.contains("passengerSelect_children")) {
 		countChildren = parseInt(e.target.value);
 	}
 	if (e.target.classList.contains("passengerSelect_babies")) {
-		countBabies = parseInt(e.target.value)
+		countBabies = parseInt(e.target.value);
 	}
 
 	updateAllCounts();
@@ -28,7 +28,7 @@ export const updateAllCounts = () => {
 	const babies = document.querySelectorAll(".passengerSelect_babies");
 
 	for (let adultSelect of adults) {
-		adultSelect.value = countAdults
+		adultSelect.value = countAdults;
 	}
 
 	for (let childSelect of children) {
@@ -36,7 +36,7 @@ export const updateAllCounts = () => {
 	}
 
 	for (let babySelect of babies) {
-		babySelect.value = countBabies
+		babySelect.value = countBabies;
 	}
 };
 
@@ -59,18 +59,24 @@ export const countPassengers = () => {
 
 	const sumWithInitial = countAdults + countChildren + countBabies;
 
-	const countToChange = document.querySelector(".passengerCount");
+	const countsToChange = document.querySelectorAll(".passengerCount");
 
 	let quantity;
 
 	if (sumWithInitial === 0) {
 		quantity = 9;
-		countToChange.textContent = `You can choose ${quantity} more passengers`;
+		countsToChange.forEach((countToChange) => {
+			countToChange.textContent = `You can choose ${quantity} more passengers`;
+		});
 	} else if (sumWithInitial >= 10) {
-		countToChange.textContent = `Too many passengers`;
+		countsToChange.forEach((countToChange) => {
+			countToChange.textContent = `Too many passengers`;
+		});
 	} else {
 		quantity = 9 - sumWithInitial;
-		countToChange.textContent = `You can choose ${quantity} more passengers`;
+		countsToChange.forEach((countToChange) => {
+			countToChange.textContent = `You can choose ${quantity} more passengers`;
+		});
 	}
 
 	optionPassengersTitles.forEach((optionPassengersTitle) => {
