@@ -2,7 +2,7 @@ import { userData } from "../../../config/firebase";
 import { handleGoToSummary } from "../navbar/routing";
 
 const optionOriginTitle = document.querySelector(".optionOriginTitle");
-const inputDate = document.querySelector(".inputDate");
+const inputDates = document.querySelectorAll(".inputDate");
 const optionDestinationTitle = document.querySelector(
 	".optionDestinationTitle"
 );
@@ -24,7 +24,7 @@ export const isFormFilled = () => {
 			warning.textContent = "Fill the fields";
 			warning.classList.toggle("showWarning");
 		} else {
-			handleGoToSummary()
+			handleGoToSummary();
 		}
 	} else {
 		registerLogin.classList.add("show");
@@ -32,14 +32,16 @@ export const isFormFilled = () => {
 };
 
 const ifDateChanged = () => {
-	inputDate.addEventListener("input", () => {
-		const newValue = inputDate.value;
+	inputDates.forEach((inputDate) => {
+		inputDate.addEventListener("input", () => {
+			const newValue = inputDate.value;
 
-		if (newValue !== originalValue) {
-			dateChanged = true;
-		} else {
-			dateChanged = false;
-		}
+			if (newValue !== originalValue) {
+				dateChanged = true;
+			} else {
+				dateChanged = false;
+			}
+		});
 	});
 };
 

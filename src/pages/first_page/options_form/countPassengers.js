@@ -3,6 +3,43 @@ const optionPassengersTitles = document.querySelectorAll(
 );
 const warning = document.querySelector(".warning");
 
+let countAdults = 0;
+let countChildren = 0;
+let countBabies = 0;
+
+export const handlePassengerCountChange = (e) => {
+	if (e.target.classList.contains("passengerSelect_adults")) {
+		countAdults = parseInt(e.target.value)
+	}
+	if (e.target.classList.contains("passengerSelect_children")) {
+		countChildren = parseInt(e.target.value);
+	}
+	if (e.target.classList.contains("passengerSelect_babies")) {
+		countBabies = parseInt(e.target.value)
+	}
+
+	updateAllCounts();
+	countPassengers();
+};
+
+export const updateAllCounts = () => {
+	const adults = document.querySelectorAll(".passengerSelect_adults");
+	const children = document.querySelectorAll(".passengerSelect_children");
+	const babies = document.querySelectorAll(".passengerSelect_babies");
+
+	for (let adultSelect of adults) {
+		adultSelect.value = countAdults
+	}
+
+	for (let childSelect of children) {
+		childSelect.value = countChildren;
+	}
+
+	for (let babySelect of babies) {
+		babySelect.value = countBabies
+	}
+};
+
 export const countPassengers = () => {
 	const selectedOptions = [];
 
@@ -19,13 +56,8 @@ export const countPassengers = () => {
 		warning.textContent = "Babies cannot fly on their own";
 		warning.classList.toggle("showWarning");
 	}
-	console.log("warning");
 
-	const initialValue = 0;
-	const sumWithInitial = selectedOptions.reduce(
-		(accumulator, currentValue) => Number(accumulator) + Number(currentValue),
-		initialValue
-	);
+	const sumWithInitial = countAdults + countChildren + countBabies;
 
 	const countToChange = document.querySelector(".passengerCount");
 
@@ -34,14 +66,11 @@ export const countPassengers = () => {
 	if (sumWithInitial === 0) {
 		quantity = 9;
 		countToChange.textContent = `You can choose ${quantity} more passengers`;
-		console.log("1 opcja");
 	} else if (sumWithInitial >= 10) {
 		countToChange.textContent = `Too many passengers`;
-		console.log("2 opcja");
 	} else {
 		quantity = 9 - sumWithInitial;
 		countToChange.textContent = `You can choose ${quantity} more passengers`;
-		console.log("3 opcja");
 	}
 
 	optionPassengersTitles.forEach((optionPassengersTitle) => {

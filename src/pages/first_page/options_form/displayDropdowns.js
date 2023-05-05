@@ -1,5 +1,5 @@
 import { cityInfo } from "./cityInfo.js";
-import { countPassengers } from "./countPassengers.js";
+import { handlePassengerCountChange } from "./countPassengers.js";
 import { addPassengersDetails } from "./addPassengersDetails.js";
 
 const axios = require("axios");
@@ -87,12 +87,12 @@ const createPassengers = (passengers) => {
 		divLeftDesc.textContent = element.details;
 		divLeftDesc.classList.add("passengerDesc");
 		selectRight.classList.add("passengerSelect");
-		// selectRight.classList.add("passengerSelect_" + element.value);
+		selectRight.classList.add("passengerSelect_" + element.value);
 
 		divLeft.append(divLeftTitle, divLeftDesc);
 		passengerContainer.append(divLeft, selectRight);
 		containers.push(passengerContainer);
-		selectRight.addEventListener("change", countPassengers);
+		selectRight.addEventListener("change", handlePassengerCountChange);
 	});
 
 	return containers;
