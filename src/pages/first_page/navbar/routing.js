@@ -1,5 +1,6 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../../../config/firebase";
+import { planeAPI } from "../../summary/planeAPI";
 
 const registerLogin = document.querySelector(".registerLogin");
 const navbarLogin = document.querySelector(".navbarLogin");
@@ -24,7 +25,7 @@ export const handleGoToSummary = () => {
 	header.classList.toggle("hide");
 	wrapper.classList.toggle("hide");
 	secondPage.classList.toggle("show")
-
+	planeAPI()
 };
 
 export const homePage = () => {
