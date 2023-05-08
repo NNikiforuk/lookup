@@ -63,6 +63,8 @@ export const fetchFlightData = async () => {
 export const planeAPI = async () => {
 	warning.classList.remove("showWarning");
 	const flightCardsToRemove = document.querySelectorAll(".flightCard");
+	const planeText = document.querySelector(".planeText");
+	const planeIcon = document.querySelector(".planeIcon");
 
 	flightCardsToRemove.forEach((flightCardToRemove) => {
 		flightCardToRemove.remove();
@@ -76,6 +78,20 @@ export const planeAPI = async () => {
 		warning.textContent = "No flight found";
 		warning.classList.toggle("showWarning");
 	} else {
+		if (
+			secondDestination.textContent === "Krakow" ||
+			secondDestination.textContent === "Warsaw"
+		) {
+			planeText.textContent === "Embraer";
+			planeIcon.textContent = `<i className="fa-solid fa-paper-plane" />`;
+		} else if (secondDestination === "Paris") {
+			planeText.textContent === "Boeing 737";
+			planeIcon.innerHTML = `<i className="fa-solid fa-plane" />`;
+		} else if (secondDestination === "New York") {
+			planeText.textContent === "Dreamliner 787";
+			planeIcon.innerHTML = `<i className="fa-solid fa-jet-fighter" />`;
+		}
+
 		const createFlightCard = (flight) => {
 			const flightCard = document.createElement("div");
 			const agentId = document.createElement("a");

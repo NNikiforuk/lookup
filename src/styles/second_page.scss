@@ -166,6 +166,13 @@
 		margin: 0 auto;
 		text-align: center;
 
+		.plane {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 1em;
+		}
+
 		.title {
 			font-weight: bold;
 			border-bottom: 1px solid #999;
