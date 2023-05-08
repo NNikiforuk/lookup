@@ -1,15 +1,16 @@
 import * as xd from "./openWeatherMapApiKey.json";
 
-const { API_KEY } = xd;
-const API_LINK = "https://api.openweathermap.org/data/2.5/weather?q=";
-const API_UNITS = "&units=metric";
+export const { API_KEY } = xd;
+export const API_LINK = "https://api.openweathermap.org/data/2.5/weather?q=";
+export const API_UNITS = "&units=metric";
+const currentCities = document.querySelectorAll(".currentCity");
 const currentDates = document.querySelectorAll(".currentDate");
 const currentHours = document.querySelectorAll(".currentHour");
 const currentTemps = document.querySelectorAll(".currentTemp");
 const optionOriginTitle = document.querySelector(".optionOriginTitle");
 
 export const cityInfo = () => {
-	const city = optionOriginTitle.textContent.slice(0, -6)
+	const city = optionOriginTitle.textContent.slice(0, -6);
 	const URL = API_LINK + city + API_KEY + API_UNITS;
 
 	if (city !== "Origin") {
@@ -18,13 +19,22 @@ export const cityInfo = () => {
 			const temperatureContainer = Math.floor(temp) + "°C";
 
 			const date = new Date();
-			const dateDetails = date.toLocaleDateString("en");
+			const dateDetails = date.toLocaleDateString("en", {
+				weekday: "short",
+				day: "2-digit",
+				month: "2-digit",
+				year: "2-digit",
+			});
 
 			const hour = date.getHours();
 			const minute = date.getMinutes();
 
+			currentCities.forEach((currentCity) => {
+				currentCity.textContent = `Today in in: ${city}`;
+			});
+
 			currentDates.forEach((currentDate) => {
-				currentDate.textContent = `Today in ${city}: ${dateDetails}`;
+				currentDate.textContent = dateDetails;
 			});
 
 			currentHours.forEach((currentHour) => {

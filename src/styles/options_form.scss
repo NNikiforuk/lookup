@@ -37,6 +37,7 @@
 		.optionOrigin,
 		.optionDestination,
 		.optionPassengers,
+		.optionLuggage,
 		input[type="date"] {
 			border: none;
 			position: relative;
@@ -66,7 +67,8 @@
 
 			.optionOriginTitle,
 			.optionDestinationTitle,
-			.optionPassengersTitle {
+			.optionPassengersTitle,
+			.optionLuggageTitle {
 				font-size: 1em;
 			}
 
@@ -230,6 +232,7 @@
 			.optionOrigin,
 			.optionDestination,
 			.optionPassengers,
+			.optionLuggage,
 			input[type="date"] {
 				padding: 1.3em 2.6em;
 				width: 16rem;
@@ -242,6 +245,7 @@
 				.optionOriginTitle,
 				.optionDestinationTitle,
 				.optionPassengersTitle,
+				.optionLuggageTitle,
 				.fa-solid {
 					font-size: 1.7em;
 				}
@@ -340,6 +344,7 @@
 			.optionOrigin,
 			.optionDestination,
 			.optionPassengers,
+			.optionLuggage,
 			input[type="date"] {
 				padding: 1.3em 2.6em;
 				width: 16rem;
@@ -352,6 +357,7 @@
 				.optionOriginTitle,
 				.optionDestinationTitle,
 				.optionPassengersTitle,
+				.optionLuggageTitle,
 				.fa-solid {
 					font-size: 1.7em;
 				}
@@ -428,6 +434,84 @@
 			padding: 1.3em;
 			width: 16rem;
 			font-size: 1.7em;
+		}
+	}
+}
+@media only screen and (min-width: 1300px) {
+	.wrapper {
+		top: -15em;
+
+		.weatherInfo {
+			font-size: 1em;
+		}
+
+		.form {
+			.optionOrigin,
+			.optionDestination,
+			.optionPassengers,
+			.optionLuggage,
+			input[type="date"] {
+				width: 18rem;
+				height: 4rem;
+				font-size: 1em;
+
+				.optionOriginTitle,
+				.optionDestinationTitle,
+				.optionPassengersTitle,
+				.optionLuggageTitle,
+				.fa-solid {
+					font-size: 1em;
+				}
+
+				.dropdown {
+					width: 18rem;
+
+					.liItem {
+						font-size: 1em;
+					}
+				}
+
+				.dropdownPassengers {
+					.passengerContainer {
+						font-size: 1em;
+
+						.passengerDesc {
+							padding-bottom: 1.5em;
+						}
+
+						.passengerSelect {
+							width: 20%;
+							height: 2rem;
+						}
+					}
+
+					.belowContainer {
+						.confirmSmallerBtn {
+							font-size: 1em;
+						}
+
+						.passengerNote {
+							font-size: 1em;
+						}
+
+						.countContainer {
+							.passengerCount,
+							.babyInfo {
+								font-size: 1em;
+							}
+						}
+					}
+				}
+			}
+
+			input[type="date"] {
+				font-size: 1em;
+			}
+		}
+
+		.confirmBtn {
+			padding: 1.5em;
+			font-size: 1em;
 		}
 	}
 }

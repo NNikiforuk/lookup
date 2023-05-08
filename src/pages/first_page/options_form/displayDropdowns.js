@@ -4,7 +4,7 @@ import { addPassengersDetails } from "./addPassengersDetails.js";
 
 const axios = require("axios");
 const URL =
-	"https://raw.githubusercontent.com/NNikiforuk/lookup/c7ce7d82acc7dd3ed169734fb82d50afbcc0d597/endpoints/endpoints.json";
+	"https://raw.githubusercontent.com/NNikiforuk/lookup/main/endpoints.json";
 const dropdownOrigins = document.querySelectorAll(".dropdownOrigin");
 const optionOriginTitles = document.querySelectorAll(".optionOriginTitle");
 const dropdownDestinations = document.querySelectorAll(".dropdownDestination");
@@ -12,6 +12,8 @@ const optionDestinationTitles = document.querySelectorAll(
 	".optionDestinationTitle"
 );
 const dropdownsPassengers = document.querySelectorAll(".dropdownPassengers");
+const dropdownLuggages = document.querySelectorAll(".dropdownLuggage");
+const optionLuggageTitles = document.querySelectorAll(".optionLuggageTitle");
 
 export const displayOptions = async () => {
 	const response = await axios.get(URL);
@@ -23,6 +25,7 @@ export const displayOptions = async () => {
 			dropdownPassengers.append(passengerContainer);
 		});
 	});
+	createLuggage(response.data.luggage);
 	addPassengersDetails();
 };
 
@@ -96,4 +99,22 @@ const createPassengers = (passengers) => {
 	});
 
 	return containers;
+};
+
+const createLuggage = (luggages) => {
+	luggages.forEach((element) => {
+		dropdownLuggages.forEach((dropdownLuggage) => {
+			const li = document.createElement("li");
+			li.textContent = element.value;
+			li.classList.add("liItem");
+
+			dropdownLuggage.appendChild(li);
+
+			li.addEventListener("click", () => {
+				optionLuggageTitles.forEach((optionLuggageTitle) => {
+					optionLuggageTitle.textContent = li.textContent;
+				});
+			});
+		});
+	});
 };

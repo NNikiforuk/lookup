@@ -12,16 +12,18 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+		margin-bottom: 2rem;
 
 		.options {
 			.optionOrigin,
 			.optionDestination,
 			.optionPassengers,
+			.optionLuggage,
 			input[type="date"] {
 				border: none;
 				padding: 1em;
 				margin: 0.5em;
-				width: 11rem;
+				width: 11.4rem;
 				color: grey;
 				border: none;
 				height: 2.5rem;
@@ -40,7 +42,8 @@
 
 				.secondOriginTitle,
 				.secondDestinationTitle,
-				.secondPassengersTitle {
+				.secondPassengersTitle,
+				.secondLuggageTitle {
 					font-size: 1em;
 				}
 
@@ -51,7 +54,6 @@
 					border-radius: 0.8em;
 					background: white;
 					visibility: hidden;
-					transform: translateY(0);
 					transition: all 0.1s ease-in-out;
 					z-index: 100;
 					top: 0;
@@ -70,6 +72,10 @@
 				.show {
 					visibility: visible;
 					transform: translateY(3rem);
+				}
+
+				.dropdownLuggage {
+					transform: translateY(15rem);
 				}
 
 				.dropdownPassengers {
@@ -154,10 +160,12 @@
 		justify-content: center;
 		align-items: center;
 		box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
-		padding: 2em;
-		margin-top: 1rem;
+		padding: 2.5em;
+		margin-top: 3rem;
 		width: 100%;
-		color: grey;
+		color: #12345c;
+		margin: 0 auto;
+		text-align: center;
 
 		.title {
 			font-weight: bold;
@@ -216,11 +224,12 @@
 
 			.options {
 				display: grid;
-				grid-template-columns: repeat(4, 1fr);
+				grid-template-columns: repeat(3, 1fr);
 
 				.optionOrigin,
 				.optionDestination,
 				.optionPassengers,
+				.optionLuggage,
 				input[type="date"] {
 					.dropdown {
 						transition: all 0.2s ease-in-out;
@@ -262,6 +271,26 @@
 		.summary {
 			width: 50%;
 			font-size: 1.5em;
+		}
+	}
+}
+
+@media only screen and (min-width: 1300px) {
+	.secondPage {
+		.form {
+			.options {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				.optionOrigin,
+				.optionDestination,
+				.optionPassengers,
+				.optionLuggage,
+				input[type="date"] {
+					width: 16rem;
+				}
+			}
 		}
 	}
 }

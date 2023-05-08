@@ -7,6 +7,7 @@ const optionDestinationTitle = document.querySelector(
 	".optionDestinationTitle"
 );
 const optionPassengersTitle = document.querySelector(".optionPassengersTitle");
+const optionLuggageTitle = document.querySelector(".optionLuggageTitle");
 const registerLogin = document.querySelector(".registerLogin");
 const warning = document.querySelector(".warning");
 
@@ -18,7 +19,7 @@ export const isFormFilled = () => {
 			optionOriginTitle.textContent === "Origin" ||
 			selectedDate === "" ||
 			optionDestinationTitle.textContent === "Destination" ||
-			optionPassengersTitle.textContent === "Passengers"
+			optionPassengersTitle.textContent === "Passengers" || optionLuggageTitle.textContent === "Luggage"
 		) {
 			warning.textContent = "Fill the fields";
 			warning.classList.toggle("showWarning");

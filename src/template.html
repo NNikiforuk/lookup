@@ -41,6 +41,7 @@
 
         <div class="wrapper">
             <div class="weatherInfo">
+                <div class="currentCity"></div>
                 <div class="currentDate"></div>
                 <div class="currentHour"></div>
                 <div class="currentTemp"></div>
@@ -62,9 +63,14 @@
                 <div class="optionPassengers optionToDrop">
                     <i class="fa-solid fa-user"></i>
                     <p class="optionPassengersTitle" id="firstPassengers">Passengers</p>
-                    <div class="dropdownPassengers dropdown preventClose">
+                    <div class="dropdownPassengers dropdown preventClose"></div>
+                </div>
 
-                    </div>
+                <div class="optionLuggage optionToDrop optionToClose">
+                    <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                    <p class="optionLuggageTitle">Luggage</p>
+                    <ul class="dropdownLuggage dropdown">
+                    </ul>
                 </div>
 
             </div>
@@ -116,11 +122,18 @@
                         <div class="dropdownPassengers dropdown preventClose">
                         </div>
                     </div>
+                    <div class="optionLuggage optionToDrop optionToClose">
+                        <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                        <p class="optionLuggageTitle"></p>
+                        <ul class="dropdownLuggage dropdown">
+                        </ul>
+                    </div>
                 </div>
                 <button class="confirmBtn secondConfirmBtn">Accept</button>
             </div>
             <div class="summary">
                 <div class="title">Summary</div>
+                <div class="weather"></div>
             </div>
         </section>
 

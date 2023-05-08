@@ -106,12 +106,22 @@
 			.headerImg {
 				width: 70%;
 				max-width: 80rem;
+				height: 50vh;
 			}
 
 			.headerText {
 				position: absolute;
 				right: 0;
 			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1300px) {
+	.main {
+		
+		.warning {
+			font-size: 1.2em;
 		}
 	}
 }

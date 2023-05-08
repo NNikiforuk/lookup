@@ -5,6 +5,7 @@ import {
 	countChildren,
 	countBabies,
 } from "../first_page/options_form/countPassengers";
+import { cityInfoDestination } from "./cityInfoDestination";
 
 const summary = document.querySelector(".summary");
 const warning = document.querySelector(".warning");
@@ -53,6 +54,7 @@ export const fetchFlightData = async () => {
 		},
 	};
 
+	cityInfoDestination();
 	const response = await axios.request(options);
 	return response.data;
 };
@@ -71,13 +73,13 @@ export const planeAPI = async () => {
 			const agentId = document.createElement("a");
 			const price = document.createElement("div");
 
-			agentId.textContent = `Agent: ${flight.agentId}`;
+			price.textContent = `Price: ${flight.price} PLN`;
+			price.classList.add("price");
+			agentId.textContent = `Click to book`;
 			agentId.classList.add("agentId");
 			agentId.href = flight.deepLink;
 			agentId.setAttribute("target", "_blank");
-			price.textContent = `Price: ${flight.price} PLN`;
-			price.classList.add("price");
-			flightCard.append(agentId, price);
+			flightCard.append(price, agentId);
 
 			return flightCard;
 		};
