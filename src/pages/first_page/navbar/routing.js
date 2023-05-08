@@ -13,6 +13,7 @@ const firstDate = document.querySelector("#firstDate");
 const firstDestination = document.querySelector("#firstDestination");
 const firstPassengers = document.querySelector("#firstPassengers");
 const weatherInfo = document.querySelector(".weatherInfo");
+const warning = document.querySelector(".warning");
 
 export const handleUserLoggedIn = () => {
 	registerLogin.classList.remove("show");
@@ -65,5 +66,6 @@ export const homePage = () => {
 		for (let passengerCount of passengerCounts) {
 			passengerCount.textContent = `You can choose 9 more passengers`;
 		}
+		warning.classList.remove("showWarning");
 	});
 };

@@ -6,6 +6,7 @@ import {
 	countBabies,
 } from "../first_page/options_form/countPassengers";
 import { cityInfoDestination } from "./cityInfoDestination";
+import { currency } from "./currencies";
 
 const summary = document.querySelector(".summary");
 const warning = document.querySelector(".warning");
@@ -39,7 +40,7 @@ export const fetchFlightData = async () => {
 			query: {
 				market: "PL",
 				locale: "pl-PL",
-				currency: "PLN",
+				currency: currency,
 				queryLegs: [
 					{
 						originPlaceId: { iata: airportOrigin },
@@ -60,6 +61,13 @@ export const fetchFlightData = async () => {
 };
 
 export const planeAPI = async () => {
+	warning.classList.remove("showWarning");
+	const flightCardsToRemove = document.querySelectorAll(".flightCard");
+
+	flightCardsToRemove.forEach((flightCardToRemove) => {
+		flightCardToRemove.remove();
+	});
+
 	const data = await fetchFlightData();
 	const flights = sumFlights(data);
 	const flight = flights[0];
@@ -73,7 +81,8 @@ export const planeAPI = async () => {
 			const agentId = document.createElement("a");
 			const price = document.createElement("div");
 
-			price.textContent = `Price: ${flight.price} PLN`;
+			flightCard.classList.add("flightCard");
+			price.textContent = `Price: ${flight.price} ${currency}`;
 			price.classList.add("price");
 			agentId.textContent = `Click to book`;
 			agentId.classList.add("agentId");
@@ -83,6 +92,7 @@ export const planeAPI = async () => {
 
 			return flightCard;
 		};
+
 		summary.append(createFlightCard(flight));
 	}
 };
