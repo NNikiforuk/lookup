@@ -19,7 +19,8 @@ export const isFormFilled = () => {
 			optionOriginTitle.textContent === "Origin" ||
 			selectedDate === "" ||
 			optionDestinationTitle.textContent === "Destination" ||
-			optionPassengersTitle.textContent === "Passengers" || optionLuggageTitle.textContent === "Luggage"
+			optionPassengersTitle.textContent === "Passengers" ||
+			optionLuggageTitle.textContent === "Luggage"
 		) {
 			warning.textContent = "Fill the fields";
 			warning.classList.toggle("showWarning");
@@ -38,9 +39,23 @@ const ifDateChanged = () => {
 };
 
 const handleDateChange = (e) => {
+	const date = new Date();
 	selectedDate = e.target.value;
+
 	for (let inputDate of inputDates) {
 		inputDate.value = selectedDate;
+		const array = inputDate.value.split("-");
+		const year = Number(array[0]);
+		const month = Number(array[1]);
+		const day = Number(array[2]);
+		const secondDayMs = new Date(year, month - 1, day);
+		const difference = secondDayMs - date;
+		//                                        ms     s  m    h
+		const diffDays = Math.round(difference / (1000 * 60 * 60 * 24));
+
+		if (diffDays < 0) {
+			alert("You cannot book a flight before today");
+		}
 	}
 };
 
