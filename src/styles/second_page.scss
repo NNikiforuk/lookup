@@ -170,7 +170,11 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			margin: 1em;
+			padding-bottom: .5em;
+
+			.planeIcon {
+				padding-left: 1em;
+			}
 		}
 
 		.title {
@@ -180,38 +184,34 @@
 			margin-bottom: 1rem;
 		}
 
-		.weather {
-			padding: 1em;
-
 			.currencies {
 				display: flex;
 				justify-content: center;
 				align-items: center;
 
 				.summaryBtn {
-					width: 4rem;
-					height: 1.5rem;
 					background-color: transparent;
 					color: grey;
 					cursor: pointer;
 					margin: 1rem;
-					border: none;
+					border: 1px solid grey;
+					border-radius: 5px;
+					font-size: .8em;
+					padding: 0.5em;
 				}
 			}
 
-		}
+
 		.flightCard {
-			padding: 1rem;
 			.agentId,
 			.price {
-				padding: 1em;
 				color: #12345c;
+				padding-bottom: .5em;
 			}
 
 			.agentId {
 				cursor: pointer;
 				color: rgb(134, 144, 41);
-				padding: 1em;
 				font-weight: bold;
 			}
 		}

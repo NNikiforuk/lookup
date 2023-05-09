@@ -30,7 +30,7 @@ export const cityInfo = () => {
 			const minute = date.getMinutes();
 
 			currentCities.forEach((currentCity) => {
-				currentCity.textContent = `Today in in: ${city}`;
+				currentCity.textContent = `Today in: ${city}`;
 			});
 
 			currentDates.forEach((currentDate) => {
