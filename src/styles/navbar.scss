@@ -100,30 +100,14 @@
 				}
 
 				.logoText {
-					font-size: 1.7em;
-					margin: 0;
+					font-size: 1.5em;
 				}
 			}
 
 			.navbarLogout {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				flex-direction: column;
 				height: 100%;
 				max-width: 10rem;
 				font-size: 1.5em;
-				border-top-right-radius: 0.5em;
-				border-bottom-left-radius: 0;
-				border-top-left-radius: 0.5em;
-				border-bottom-right-radius: 0;
-			}
-
-			.navbarLogin {
-				border-top-right-radius: 0.5em;
-				border-bottom-left-radius: 0;
-				border-top-left-radius: 0.5em;
-				border-bottom-right-radius: 0;
 			}
 		}
 	}
