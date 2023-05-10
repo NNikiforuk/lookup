@@ -22,6 +22,13 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 const warning = document.querySelector(".warning");
 
+auth.onAuthStateChanged((user) => {
+	if (user) {
+		isUserLoggedIn = true;
+		handleUserLoggedIn();
+	}
+});
+
 let isUserLoggedIn = false;
 
 export const userData = () => {
@@ -35,10 +42,9 @@ export const authRegister = async () => {
 	const password = document.querySelector(".registerPassword").value;
 
 	try {
-		const user = await createUserWithEmailAndPassword(auth, email, password);
+		await createUserWithEmailAndPassword(auth, email, password);
 
 		isUserLoggedIn = true;
-
 		handleUserLoggedIn();
 		warning.classList.remove("show");
 	} catch (error) {
@@ -49,17 +55,13 @@ export const authRegister = async () => {
 };
 
 export const authLogin = async () => {
-	// const email = document.querySelector(".loginEmail").value;
-	// const password = document.querySelector(".loginPassword").value;
-
-	const email = "jakub@mail.com";
-	const password = "iloveniki";
+	const email = document.querySelector(".loginEmail").value;
+	const password = document.querySelector(".loginPassword").value;
 
 	try {
 		await signInWithEmailAndPassword(auth, email, password);
 
 		isUserLoggedIn = true;
-
 		handleUserLoggedIn();
 	} catch (error) {
 		const errorMessage = error.message;

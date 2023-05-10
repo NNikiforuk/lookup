@@ -37,6 +37,10 @@
 
 		.form {
 			margin-top: 1.5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 
 			.loginEmail,
 			.loginPassword {
@@ -57,6 +61,7 @@
 				color: rgb(164, 161, 161);
 			}
 		}
+
 
 		.loginBtn {
 			border: none;
@@ -178,6 +183,7 @@
 					width: 25rem;
 					border: 3.5px solid #4392f1;
 				}
+
 			}
 
 			.loginBtn {

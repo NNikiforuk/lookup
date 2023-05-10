@@ -31,8 +31,8 @@ export const mainFunction = () => {
 	loginBtn.addEventListener("click", authLogin);
 	logoutBtn.addEventListener("click", homePage);
 	warning.addEventListener("click", closeWarning);
-	secondConfirmBtn.addEventListener("click", planeAPI)
-	summaryBtns.forEach(summaryBtn => {
-		summaryBtn.addEventListener("click", currencies)
-	})
+	secondConfirmBtn.addEventListener("click", planeAPI);
+	summaryBtns.forEach((summaryBtn) => {
+		summaryBtn.addEventListener("click", currencies);
+	});
 };
