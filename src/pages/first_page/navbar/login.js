@@ -4,7 +4,7 @@ const warning = document.querySelector(".warning");
 
 export const showLoginForm = () => {
 	registerLogin.classList.toggle("show");
-	warning.classList.remove("show");
+	warning.classList.remove("showWarning");
 };
 
 export const showRegisterForm = () => {

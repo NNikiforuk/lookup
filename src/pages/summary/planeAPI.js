@@ -58,10 +58,9 @@ export const fetchFlightData = async () => {
 	cityInfoDestination();
 	const response = await axios.request(options);
 	const sessionToken = response.data.sessionToken;
-	let status = response.data.status;
 
 	while (true) {
-		await sleep(200);
+		await sleep(1000);
 		const response = await axios.request({
 			method: "GET",
 			url: `https://skyscanner-api.p.rapidapi.com/v3/flights/live/search/poll/${sessionToken}`,
@@ -70,6 +69,8 @@ export const fetchFlightData = async () => {
 				"X-RapidAPI-Host": "skyscanner-api.p.rapidapi.com",
 			},
 		});
+
+		let status = response.data.status;
 		if (status === "RESULT_STATUS_COMPLETE") {
 			return response.data;
 		}

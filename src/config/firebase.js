@@ -46,11 +46,11 @@ export const authRegister = async () => {
 
 		isUserLoggedIn = true;
 		handleUserLoggedIn();
-		warning.classList.remove("show");
+		warning.classList.remove("showWarning");
 	} catch (error) {
 		const errorMessage = error.message;
 		warning.textContent = errorMessage;
-		warning.classList.toggle("show");
+		warning.classList.toggle("showWarning");
 	}
 };
 
@@ -60,12 +60,11 @@ export const authLogin = async () => {
 
 	try {
 		await signInWithEmailAndPassword(auth, email, password);
-
 		isUserLoggedIn = true;
 		handleUserLoggedIn();
 	} catch (error) {
 		const errorMessage = error.message;
 		warning.textContent = errorMessage;
-		warning.classList.toggle("show");
+		warning.classList.toggle("showWarning");
 	}
 };

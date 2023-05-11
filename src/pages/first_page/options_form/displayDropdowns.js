@@ -76,7 +76,7 @@ const createPassengers = (passengers) => {
 		const divLeftDesc = document.createElement("div");
 		const selectRight = document.createElement("select");
 
-		for (let i = 0; i < 10; i++) {
+		for (let i = 0; i < 9; i++) {
 			const passengerOption = document.createElement("option");
 			passengerOption.value = i;
 			passengerOption.textContent = i;

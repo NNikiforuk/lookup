@@ -66,16 +66,16 @@ export const countPassengers = () => {
 	let quantity;
 
 	if (sumWithInitial === 0) {
-		quantity = 9;
+		quantity = 8;
 		countsToChange.forEach((countToChange) => {
 			countToChange.textContent = `You can choose ${quantity} more passengers`;
 		});
-	} else if (sumWithInitial >= 10) {
+	} else if (sumWithInitial >= 9) {
 		countsToChange.forEach((countToChange) => {
 			countToChange.textContent = `Too many passengers`;
 		});
 	} else {
-		quantity = 9 - sumWithInitial;
+		quantity = 8 - sumWithInitial;
 		countsToChange.forEach((countToChange) => {
 			countToChange.textContent = `You can choose ${quantity} more passengers`;
 		});

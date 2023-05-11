@@ -30,7 +30,7 @@ const addDetails = () => {
 	const passengerCount = document.createElement("p");
 	passengerCount.classList.add("passengerCount");
 
-	passengerCount.textContent = "You can choose 9 more passengers";
+	passengerCount.textContent = "You can choose 8 more passengers";
 
 	const babyInfo = document.createElement("p");
 	babyInfo.classList.add("babyInfo");

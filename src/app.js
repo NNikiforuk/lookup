@@ -5,8 +5,8 @@ import {
 	showLoginForm,
 	showRegisterForm,
 } from "./pages/first_page/navbar/login";
-import { authRegister, authLogin } from "./config/firebase";
-import { homePage } from "./pages/first_page/navbar/routing";
+import { authRegister, authLogin, userData } from "./config/firebase";
+import { handleGoToSummary, homePage } from "./pages/first_page/navbar/routing";
 import { closeWarning } from "./pages/first_page/options_form/isFormFilled";
 import { planeAPI } from "./pages/summary/planeAPI";
 import { currencies } from "./pages/summary/currencies";
@@ -20,6 +20,8 @@ const logoutBtn = document.querySelector(".navbarLogout");
 const warning = document.querySelector(".warning");
 const secondConfirmBtn = document.querySelector(".secondConfirmBtn");
 const summaryBtns = document.querySelectorAll(".summaryBtn");
+const loginPassword = document.querySelector(".loginPassword");
+const registerPassword = document.querySelector(".registerPassword");
 
 export const mainFunction = () => {
 	displayOptions();
@@ -27,7 +29,9 @@ export const mainFunction = () => {
 	confirmBtn.addEventListener("click", isFormFilled);
 	navbarLogin.addEventListener("click", showLoginForm);
 	openRegister.addEventListener("click", showRegisterForm);
+	registerPassword.addEventListener("keyup", enterKeyCheckRegister);
 	registerBtn.addEventListener("click", authRegister);
+	loginPassword.addEventListener("keyup", enterKeyCheckLogin);
 	loginBtn.addEventListener("click", authLogin);
 	logoutBtn.addEventListener("click", homePage);
 	warning.addEventListener("click", closeWarning);
@@ -35,4 +39,18 @@ export const mainFunction = () => {
 	summaryBtns.forEach((summaryBtn) => {
 		summaryBtn.addEventListener("click", currencies);
 	});
+	if (userData().isUserLoggedIn === true) {
+		handleGoToSummary();
+	}
+};
+
+const enterKeyCheckLogin = (e) => {
+	if (e.code === "Enter") {
+		authLogin();
+	}
+};
+const enterKeyCheckRegister = (e) => {
+	if (e.code === "Enter") {
+		authRegister();
+	}
 };
