@@ -1,6 +1,4 @@
-import * as xd from "./openWeatherMapApiKey.json";
-
-export const { API_KEY } = xd;
+export const API_KEY = "&appid=9f754cb3d0bfdab921114cd6d5f75b92";
 export const API_LINK = "https://api.openweathermap.org/data/2.5/weather?q=";
 export const API_UNITS = "&units=metric";
 const currentCities = document.querySelectorAll(".currentCity");
