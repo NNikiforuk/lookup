@@ -21,6 +21,7 @@
 * Responsive
 * Configured via Webpack
 * Styled in SCSS
+* Font Awesome used
 
   
 ## How To Use
