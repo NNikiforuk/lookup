@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import { auth } from "../../../config/firebase";
+import { auth, isUserLoggedIn, userData } from "../../../config/firebase";
 import { planeAPI } from "../../summary/planeAPI";
 
 const registerLogin = document.querySelector(".registerLogin");
@@ -64,7 +64,7 @@ export const homePage = () => {
 			passengersSelect_babies.value = "0";
 		}
 		for (let passengerCount of passengerCounts) {
-			passengerCount.textContent = `You can choose 9 more passengers`;
+			passengerCount.textContent = `You can choose 8 more passengers`;
 		}
 		warning.classList.remove("showWarning");
 	});

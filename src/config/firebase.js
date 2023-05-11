@@ -26,6 +26,9 @@ auth.onAuthStateChanged((user) => {
 	if (user) {
 		isUserLoggedIn = true;
 		handleUserLoggedIn();
+	} else {
+		isUserLoggedIn = false;
+		handleUserLoggedIn();
 	}
 });
 
@@ -45,8 +48,8 @@ export const authRegister = async () => {
 		await createUserWithEmailAndPassword(auth, email, password);
 
 		isUserLoggedIn = true;
-		handleUserLoggedIn();
 		warning.classList.remove("showWarning");
+		handleUserLoggedIn();
 	} catch (error) {
 		const errorMessage = error.message;
 		warning.textContent = errorMessage;
@@ -61,6 +64,7 @@ export const authLogin = async () => {
 	try {
 		await signInWithEmailAndPassword(auth, email, password);
 		isUserLoggedIn = true;
+		warning.classList.remove("showWarning");
 		handleUserLoggedIn();
 	} catch (error) {
 		const errorMessage = error.message;

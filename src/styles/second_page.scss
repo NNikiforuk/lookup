@@ -166,11 +166,33 @@
 		margin: 0 auto;
 		text-align: center;
 
+		.loader {
+			display: none;
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+			animation: spin 2s linear infinite;
+			margin: .5rem;
+		}
+
+		@keyframes spin {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		.showLoader {
+			display: flex;
+		}
+
 		.plane {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			padding-bottom: .5em;
+			padding-bottom: 0.5em;
 
 			.planeIcon {
 				padding-left: 1em;
@@ -184,29 +206,28 @@
 			margin-bottom: 1rem;
 		}
 
-			.currencies {
-				display: flex;
-				justify-content: center;
-				align-items: center;
+		.currencies {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 
-				.summaryBtn {
-					background-color: transparent;
-					color: grey;
-					cursor: pointer;
-					margin: 1rem;
-					border: 1px solid grey;
-					border-radius: 5px;
-					font-size: .8em;
-					padding: 0.5em;
-				}
+			.summaryBtn {
+				background-color: transparent;
+				color: grey;
+				cursor: pointer;
+				margin: 1rem;
+				border: 1px solid grey;
+				border-radius: 5px;
+				font-size: 0.8em;
+				padding: 0.5em;
 			}
-
+		}
 
 		.flightCard {
 			.agentId,
 			.price {
 				color: #12345c;
-				padding-bottom: .5em;
+				padding-bottom: 0.5em;
 			}
 
 			.agentId {

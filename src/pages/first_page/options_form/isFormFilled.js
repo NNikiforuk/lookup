@@ -54,7 +54,8 @@ const handleDateChange = (e) => {
 		const diffDays = Math.round(difference / (1000 * 60 * 60 * 24));
 
 		if (diffDays < 0) {
-			alert("You cannot book a flight before today");
+			warning.textContent = "You cannot book a flight in the past ;)";
+			warning.classList.add("showWarning");
 		}
 	}
 };

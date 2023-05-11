@@ -12,6 +12,7 @@ const summary = document.querySelector(".summary");
 const warning = document.querySelector(".warning");
 const secondOrigin = document.querySelector("#secondOrigin");
 const secondDestination = document.querySelector("#secondDestination");
+const loader = document.querySelector(".loader")
 
 export const fetchFlightData = async () => {
 	const dateData = extractDateFromString(selectedDate);
@@ -92,7 +93,9 @@ export const planeAPI = async () => {
 
 	let data;
 	try {
+		loader.classList.add("showLoader")
 		data = await fetchFlightData();
+		loader.classList.remove("showLoader");
 	} catch (error) {
 		warning.textContent = "Error while fetching flight data";
 		warning.classList.toggle("showWarning");
