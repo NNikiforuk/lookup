@@ -12,7 +12,7 @@ const summary = document.querySelector(".summary");
 const warning = document.querySelector(".warning");
 const secondOrigin = document.querySelector("#secondOrigin");
 const secondDestination = document.querySelector("#secondDestination");
-const loader = document.querySelector(".loader")
+const loader = document.querySelector(".loader");
 
 export const fetchFlightData = async () => {
 	const dateData = extractDateFromString(selectedDate);
@@ -31,11 +31,11 @@ export const fetchFlightData = async () => {
 
 	const options = {
 		method: "POST",
-		url: "https://skyscanner-api.p.rapidapi.com/v3/flights/live/search/create",
+		url: "https://skyscanner65.p.rapidapi.com/api/v1/flights/live/search/create",
 		headers: {
 			"content-type": "application/json",
 			"X-RapidAPI-Key": "1208df8556msh38c37d80315f887p1e5b54jsn41a6284627a7",
-			"X-RapidAPI-Host": "skyscanner-api.p.rapidapi.com",
+			"X-RapidAPI-Host": "skyscanner65.p.rapidapi.com",
 		},
 		data: {
 			query: {
@@ -64,10 +64,13 @@ export const fetchFlightData = async () => {
 		await sleep(1000);
 		const response = await axios.request({
 			method: "GET",
-			url: `https://skyscanner-api.p.rapidapi.com/v3/flights/live/search/poll/${sessionToken}`,
+			url: "https://skyscanner65.p.rapidapi.com/api/v1/flights/live/search/poll",
+			params: {
+				sessionToken,
+			},
 			headers: {
 				"X-RapidAPI-Key": "1208df8556msh38c37d80315f887p1e5b54jsn41a6284627a7",
-				"X-RapidAPI-Host": "skyscanner-api.p.rapidapi.com",
+				"X-RapidAPI-Host": "skyscanner65.p.rapidapi.com",
 			},
 		});
 
@@ -93,7 +96,7 @@ export const planeAPI = async () => {
 
 	let data;
 	try {
-		loader.classList.add("showLoader")
+		loader.classList.add("showLoader");
 		data = await fetchFlightData();
 		loader.classList.remove("showLoader");
 	} catch (error) {
@@ -152,7 +155,7 @@ const extractData = (flightData) => {
 			array.push({
 				agentId: item.agentId,
 				deepLink: item.deepLink,
-				price: item.price.amount,
+				price: Number(item.price.amount) /1000,
 			});
 		}
 	}
