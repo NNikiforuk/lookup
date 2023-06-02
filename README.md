@@ -5,7 +5,9 @@
 </h1>
 
 <h4 align="center">A clone of the <a href="https://look-up.netlify.app/" target="_blank">LookUp</a> app that searches for flights from Wrocław </h4>
-<h4 align="center"> <a href="https://kaleidoscopic-heliotrope-bf27d3.netlify.app/" target="_blank">Click to see the project</a> </h4>
+<h4 align="center"> <a href="https://lookup-nn.netlify.app/" target="_blank">Click to see the project</a> </h4>
+
+
 
 <h4 align="center">
 <img src="https://github.com/NNikiforuk/lookup/assets/104830490/092d0f7a-4898-4482-9a97-72466ce87429" width="210" height="575"/>
