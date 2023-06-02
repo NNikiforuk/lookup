@@ -22,7 +22,7 @@
 
 * Plain JavaScript
 * Searching flights and its price thanks to [Skyscanner API](https://rapidapi.com/apiplanet/api/skyscanner65)
-* Current weather by origin and destination
+* Current weather by origin and destination thanks to [Open weather API](https://openweathermap.org/)
 * Registration possibility based on Firebase
 * Responsive
 * Configured via Webpack
