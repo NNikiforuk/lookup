@@ -30,6 +30,7 @@ export const fetchFlightData = async () => {
 	}
 
 	const options = {
+		//Tworzy wyszukiwanie
 		method: "POST",
 		url: "https://skyscanner65.p.rapidapi.com/api/v1/flights/live/search/create",
 		headers: {
@@ -61,8 +62,10 @@ export const fetchFlightData = async () => {
 	const sessionToken = response.data.sessionToken;
 
 	while (true) {
+		//Aby nie przekroczyć limitu
 		await sleep(1000);
 		const response = await axios.request({
+			//Sprawdza czy wszystkie wyniki są gotowe
 			method: "GET",
 			url: "https://skyscanner65.p.rapidapi.com/api/v1/flights/live/search/poll",
 			params: {
@@ -155,7 +158,7 @@ const extractData = (flightData) => {
 			array.push({
 				agentId: item.agentId,
 				deepLink: item.deepLink,
-				price: Number(item.price.amount) /1000,
+				price: Number(item.price.amount) / 1000,
 			});
 		}
 	}
@@ -169,10 +172,11 @@ const extractCheapestFlight = (data) => {
 };
 
 export const sumFlights = (data) => {
+	const results = data.content.results.itineraries;
 	const cheapestFlights = extractCheapestFlight(data);
 	let array = [];
+	
 	for (let cheapestFlight of cheapestFlights) {
-		const results = data.content.results.itineraries;
 		const itenary = results[cheapestFlight];
 		const x = extractData(itenary);
 		for (let el of x) {

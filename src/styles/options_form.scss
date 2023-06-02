@@ -334,7 +334,7 @@
 		width: 70%;
 
 		.weatherInfo {
-			font-size: 1em;
+			font-size: 1.2em;
 		}
 
 		.form {
@@ -345,7 +345,7 @@
 			input[type="date"] {
 				width: 18rem;
 				height: 4rem;
-				font-size: 1em;
+				font-size: 1.4em;
 
 				.optionOriginTitle,
 				.optionDestinationTitle,
@@ -397,13 +397,13 @@
 			}
 
 			input[type="date"] {
-				font-size: 1em;
+				font-size: 1.4em;
 			}
 		}
 
 		.confirmBtn {
 			padding: 1.5em;
-			font-size: 1em;
+			font-size: 1.4em;
 		}
 	}
 }
